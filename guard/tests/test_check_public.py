@@ -607,5 +607,32 @@ class Prepublish(unittest.TestCase):
         self.assertEqual([r for (_p, _l, r) in cp.scan_blobs([("README.md", raw)], ["Zeta"])], ["undecodable"])
 
 
+class Followups(unittest.TestCase):
+    """Deferred review, D5, D8 and D10."""
+
+    def rules(self, text, deny=()):
+        return [rule for (_p, _l, rule) in cp.scan_text("x.md", text, list(deny))]
+
+    # D8: a phone typed with a Unicode dash or space is still a phone
+    def test_phones_with_unicode_separators_fail(self):
+        for sep in (chr(0x2013), chr(0x2011), chr(0x2212), chr(0x2010), chr(0x2014), chr(0xFF0D)):
+            self.assertEqual(self.rules("call " + NA_PHONE.replace("-", sep)), ["phone"], hex(ord(sep)))
+            self.assertEqual(self.rules("call " + KR_PHONE.replace("-", sep)), ["phone"], hex(ord(sep)))
+        for sep in (chr(0xA0), chr(0x202F), chr(0x2009), chr(0x3000)):
+            self.assertEqual(self.rules("call (604)" + sep + "555" + sep + "0123"), ["phone"], hex(ord(sep)))
+            self.assertEqual(self.rules("call +1" + sep + NA_PHONE.replace("-", sep)), ["phone"], hex(ord(sep)))
+
+    def test_unicode_separators_keep_line_numbers(self):
+        text = "ok\n" + NA_PHONE.replace("-", chr(0x2013)) + "\nok"
+        self.assertEqual(cp.scan_text("x.md", text, []), [("x.md", 2, "phone")])
+
+    def test_unicode_separator_in_a_path_is_still_a_phone(self):
+        path = "skill/bin/" + NA_PHONE.replace("-", chr(0x2011)) + ".py"
+        self.assertEqual([r for (_p, _l, r) in cp.scan_blobs([(path, b"clean")], [])], ["phone"])
+
+    def test_en_dash_ranges_are_not_phones(self):
+        self.assertEqual(self.rules("rounds 1" + chr(0x2013) + "3, years 2026" + chr(0x2013) + "2027"), [])
+
+
 if __name__ == "__main__":
     unittest.main()

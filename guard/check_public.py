@@ -50,6 +50,12 @@ RULES = [
         r"|\d[\d,.]*\s?(?:k|m|mm|bn|million|billion|thousand)\s?won\b(?!['\u2019])"
         r"|(?:\d{1,3}(?:,\d{3})+|\d{5,})\s?won\b(?!['\u2019])", re.IGNORECASE)),
 ]
+# A number typed with a typographic dash or pasted with a no-break space is still a phone, so
+# these become ASCII before any rule runs. One character in, one out: line numbers stay put.
+ASCII_SEPARATORS = str.maketrans({
+    **dict.fromkeys(map(ord, "\u2010\u2011\u2012\u2013\u2014\u2015\u2212\uFE58\uFE63\uFF0D"), "-"),
+    **dict.fromkeys([0xA0, 0x1680, *range(0x2000, 0x200B), 0x202F, 0x205F, 0x3000], " "),
+})
 # Any scheme, and protocol-relative links (two slashes, then a dotted host).
 URL = re.compile(
     r"\b[a-z][a-z0-9+.-]*://[^\s)>\]\"'`]+"
@@ -87,7 +93,7 @@ ZERO = "0" * 40
 
 def deny_pattern(term):
     # Words may be split by a line wrap or markdown emphasis (**Jane** Doe).
-    words = [re.escape(w) for w in term.split()]
+    words = [re.escape(w) for w in term.translate(ASCII_SEPARATORS).split()]
     return re.compile(r"(?<![A-Za-z0-9])" + r"[\s*_]+".join(words) + r"(?![A-Za-z0-9])", re.IGNORECASE)
 
 
@@ -108,6 +114,7 @@ def url_allowed(url):
 
 def scan_text(path, text, deny):
     found = []
+    text = text.translate(ASCII_SEPARATORS)
     for no, line in enumerate(text.splitlines(), start=1):
         for name, rx in RULES:
             if rx.search(line):
@@ -159,6 +166,7 @@ def expected_path(path, pattern):
 
 
 def path_rules(path, deny):
+    path = path.translate(ASCII_SEPARATORS)
     rules = [name for name, rx in RULES if rx.search(path)]
     words = re.sub(r"[-_./]+", " ", path)
     if any(deny_pattern(t).search(path) or deny_pattern(t).search(words) for t in deny):
