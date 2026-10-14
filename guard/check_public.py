@@ -12,7 +12,7 @@ Modes: the tracked files as they are on disk (default), the staged changes
 (--staged, pre-commit), a commit message (--message FILE, commit-msg), every
 commit and its message in a range (--history BASE..HEAD, CI), what a push would
 publish (--pre-push, reads the pre-push hook's stdin): ref names, annotated tag
-names and messages, and commits.
+names and messages, and commits; and one annotated tag (--tag OBJECT, CI).
 """
 import argparse
 import fnmatch
@@ -368,6 +368,7 @@ def main(argv=None):
     mode.add_argument("--pre-push", nargs="?", const="origin", metavar="REMOTE",
                       help="scan the commits a push to REMOTE would publish (pre-push hook)")
     mode.add_argument("--message", metavar="FILE", help="scan a commit message file (commit-msg hook)")
+    mode.add_argument("--tag", metavar="OBJECT", help="scan an annotated tag's name and message (CI on a tag push)")
     args = ap.parse_args(argv)
     deny = load_denylist()
     if args.message:
@@ -376,6 +377,8 @@ def main(argv=None):
         found = pre_push_findings(sys.stdin.read(), deny, args.pre_push)
     elif args.history:
         found = history_findings(args.history.split(), deny)
+    elif args.tag:
+        found = tag_findings(args.tag, deny)
     else:
         found = scan_blobs([(p, read(p, args.staged)) for p in tracked_files(args.staged)], deny)
     for line in format_findings(found):

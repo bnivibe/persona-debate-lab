@@ -762,6 +762,19 @@ class PushedRefs(unittest.TestCase):
             finally:
                 sys.stdin = saved
 
+    # CI: the tag a tag push published
+    def test_tag_mode(self):
+        with tempfile.TemporaryDirectory() as d:
+            git, _head = self.repo(d)
+            git("tag", "-a", "v1", "-m", "release for Zeta")
+            git("tag", "-a", "v2", "-m", "release two")
+            git("tag", "v3")
+            with InRepo(d) as repo:
+                self.assertEqual(repo.main("--tag", "refs/tags/v1"), 1)
+                self.assertEqual(repo.main("--tag", "refs/tags/v2"), 0)
+                self.assertEqual(repo.main("--tag", "refs/tags/v3"), 0)
+                self.assertEqual(repo.main("--tag", "refs/tags/missing"), 1)
+
 
 if __name__ == "__main__":
     unittest.main()
