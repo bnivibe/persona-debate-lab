@@ -37,6 +37,16 @@ jobs:
             BASE=origin/main
           fi
           python guard/check_public.py --history "$BASE..$HEAD_SHA"
+      - name: Privacy guard, tag message
+        if: github.ref_type == 'tag'
+        env:
+          DENYLIST: ${{ secrets.DENYLIST }}
+          TAG_REF: ${{ github.ref }}
+        run: |
+          # Fetched again by name so the step reads the pushed tag object itself, whatever
+          # checkout did with the local tag ref. A lightweight tag has no message to scan.
+          git fetch --no-tags origin "+$TAG_REF:refs/guard/pushed-tag"
+          python guard/check_public.py --tag refs/guard/pushed-tag
       - name: Secret scan
         uses: gitleaks/gitleaks-action@ff98106e4c7b2bc287b24eaf42907196329070c7 # v2.3.9
         env:

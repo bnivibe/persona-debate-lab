@@ -134,12 +134,17 @@ def fetch_user_messages(token, channel_id, after=None, user_id=None, urlopen=Non
         out = []
         latest = None
         for m in raw:
+            # One odd item (not an object, or "author": null on a system message) is skipped;
+            # it must not throw away the user's notes on the rest of the page.
+            if not isinstance(m, dict):
+                continue
             mid = m.get("id")
             if not mid:
                 continue  # an item without an id can be neither bookmarked nor sorted
             if latest is None or int(mid) > int(latest):
                 latest = mid
-            if user_id and m.get("author", {}).get("id") != user_id:
+            author = m.get("author")
+            if user_id and (author.get("id") if isinstance(author, dict) else None) != user_id:
                 continue
             out.append(
                 {

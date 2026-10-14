@@ -10,8 +10,9 @@ logs cannot leak what the guard caught.
 
 Modes: the tracked files as they are on disk (default), the staged changes
 (--staged, pre-commit), a commit message (--message FILE, commit-msg), every
-commit and its message in a range (--history BASE..HEAD, CI), and the commits
-a push would publish (--pre-push, reads the pre-push hook's stdin).
+commit and its message in a range (--history BASE..HEAD, CI), what a push would
+publish (--pre-push, reads the pre-push hook's stdin): ref names, annotated tag
+names and messages, and commits; and one annotated tag (--tag OBJECT, CI).
 """
 import argparse
 import fnmatch
@@ -22,6 +23,8 @@ import sys
 from pathlib import Path
 from urllib.parse import urlsplit
 
+# Constants code writes often enough that a ten-digit run equal to one is not taken for a phone.
+INT_LIMITS = "|".join(("2147483647", "2147483648", "4294967295", "4294967296"))
 RULES = [
     ("hangul", re.compile(
         r"[\u1100-\u11FF\u3130-\u318F\u3200-\u321E\u3260-\u327E\uA960-\uA97F"
@@ -30,8 +33,10 @@ RULES = [
     ("phone", re.compile(
         # North American with separators: (NXX) NXX-XXXX, NXX.NXX.XXXX, +1 NXX NXX XXXX, also glued to words.
         r"(?<![\d-])(?:\+?1[ .-]?)?(?:\([2-9]\d{2}\)\s?|[2-9]\d{2}[ .-])[2-9]\d{2}[ .-]\d{4}(?![\d-])"
-        # North American without separators; date-like runs (2026101412) are left alone.
-        r"|(?<![\w-])(?:\+1)?(?!20\d{2}(?:0[1-9]|1[0-2]))[2-9]\d{2}[2-9]\d{6}(?![\w-])"
+        # North American without separators; date-like runs (2026101412) and the 32-bit
+        # integer limits are left alone.
+        r"|(?<![\w-])(?:\+1)?(?!20\d{2}(?:0[1-9]|1[0-2]))(?!(?:" + INT_LIMITS + r")(?![\w-]))"
+        r"[2-9]\d{2}[2-9]\d{6}(?![\w-])"
         # Korean mobiles, with or without +82 or 82 and an optional (0).
         r"|(?<![\w-])(?:\+?82[ .-]?(?:\(0\))?1[016789]|01[016789])[ .-]?\d{3,4}[ .-]?\d{4}(?![\w-])"
         # Korean landlines: 0X-XXX-XXXX and 0XX.XXX.XXXX, with a dash, dot, space or closing paren.
@@ -44,12 +49,22 @@ RULES = [
         r"|\$\d(?=\s?(?:per\b|an?\s|/\s?(?:mo|month|yr|year|wk|week|day|hr|hour)\b)|\.(?:\s|$))"
         r"|\b[a-z]{1,2}\$\s?\d"
         r"|[\u20A9\u20AC\u00A3]\s?\d"
-        r"|(?<![\w.])\d[\d,.]*[\$\u20A9\u20AC\u00A3](?![\w{(])"
+        r"|(?<![\w.])\d[\d,.]*[\u20A9\u20AC\u00A3](?![\w{(])"
+        # A trailing $ counts, except as a regex end anchor: after a digit that follows a regex
+        # token (^ + * ? ) ] } or a backslash) and right before a closing quote, as in r"^\d+0$".
+        r"|(?<![\w.^+*?)\]}\\])\d[\d,.]*\$(?![\w{(])"
+        r"|(?<![\w.])\d[\d,.]*\$(?![\w{(\"'`])"
         r"|\b(?:CAD|USD|KRW|EUR|GBP)\s?\d"
         r"|\d[\d,.]*\s?(?:k|m|mm|bn|million|billion|thousand)?\s?(?:CAD|USD|KRW|EUR|GBP|dollars?|bucks)\b"
         r"|\d[\d,.]*\s?(?:k|m|mm|bn|million|billion|thousand)\s?won\b(?!['\u2019])"
         r"|(?:\d{1,3}(?:,\d{3})+|\d{5,})\s?won\b(?!['\u2019])", re.IGNORECASE)),
 ]
+# A number typed with a typographic dash or pasted with a no-break space is still a phone, so
+# these become ASCII before any rule runs. One character in, one out: line numbers stay put.
+ASCII_SEPARATORS = str.maketrans({
+    **dict.fromkeys(map(ord, "\u2010\u2011\u2012\u2013\u2014\u2015\u2212\uFE58\uFE63\uFF0D"), "-"),
+    **dict.fromkeys([0xA0, 0x1680, *range(0x2000, 0x200B), 0x202F, 0x205F, 0x3000], " "),
+})
 # Any scheme, and protocol-relative links (two slashes, then a dotted host).
 URL = re.compile(
     r"\b[a-z][a-z0-9+.-]*://[^\s)>\]\"'`]+"
@@ -87,7 +102,7 @@ ZERO = "0" * 40
 
 def deny_pattern(term):
     # Words may be split by a line wrap or markdown emphasis (**Jane** Doe).
-    words = [re.escape(w) for w in term.split()]
+    words = [re.escape(w) for w in term.translate(ASCII_SEPARATORS).split()]
     return re.compile(r"(?<![A-Za-z0-9])" + r"[\s*_]+".join(words) + r"(?![A-Za-z0-9])", re.IGNORECASE)
 
 
@@ -108,6 +123,7 @@ def url_allowed(url):
 
 def scan_text(path, text, deny):
     found = []
+    text = text.translate(ASCII_SEPARATORS)
     for no, line in enumerate(text.splitlines(), start=1):
         for name, rx in RULES:
             if rx.search(line):
@@ -130,27 +146,33 @@ TRAILER = re.compile(r"^[A-Za-z][A-Za-z-]*-by:\s", re.IGNORECASE)
 TRAILER_ADDRESS = re.compile(r"<[^<>\s]+@[^<>\s]+>")
 # Git's own scissors block, exactly as `git commit -v` writes it into the editor file.
 SCISSORS = re.compile(r"^(.) -{24} >8 -{24}\n\1 Do not modify or remove the line above\.$", re.MULTILINE)
+# The identity lines git writes into the editor file when the author differs from the committer
+# or the committer identity was guessed, exactly as git writes them with the default comment char.
+TEMPLATE_IDENTITY = re.compile(r"^# (?:Author: {4}|Committer: )(?!\s)[^<>]*<[^<>\s]+@[^<>\s]+>$")
 
 
-def scan_message(label, text, deny, cut_scissors=False):
+def scan_message(label, text, deny, editor_file=False):
     """Commit messages are public too, so every line is scanned, comment lines included.
 
     Only the address inside a trailer (an author identity, out of scope) is masked; the rest of a
-    trailer line is scanned. Only the commit-msg hook cuts at git's own scissors block (the
-    `git commit -v` diff below it is not the message); a stored message is scanned whole.
+    trailer line is scanned. Only the commit-msg hook's editor file is cut at git's own scissors
+    block (the `git commit -v` diff below it is not the message) and has the address masked on
+    git's own Author and Committer lines; a stored message is scanned whole.
     """
-    cut = SCISSORS.search(text) if cut_scissors else None
+    cut = SCISSORS.search(text) if editor_file else None
     if cut:
         text = text[:cut.start()]
-    lines = [TRAILER_ADDRESS.sub("<>", line) if TRAILER.match(line) else line for line in text.splitlines()]
+    lines = [TRAILER_ADDRESS.sub("<>", line)
+             if TRAILER.match(line) or (editor_file and TEMPLATE_IDENTITY.match(line)) else line
+             for line in text.splitlines()]
     return scan_text(label, "\n".join(lines), deny)
 
 
-def message_findings(label, raw, deny, cut_scissors=False):
+def message_findings(label, raw, deny, editor_file=False):
     text, undecodable = decode(raw)
     if undecodable:
         return [(label, 0, "undecodable")]
-    return scan_message(label, text, deny, cut_scissors)
+    return scan_message(label, text, deny, editor_file)
 
 
 def expected_path(path, pattern):
@@ -158,11 +180,19 @@ def expected_path(path, pattern):
     return len(parts) == len(wanted) and all(fnmatch.fnmatchcase(a, b) for a, b in zip(parts, wanted))
 
 
-def path_rules(path, deny):
-    rules = [name for name, rx in RULES if rx.search(path)]
-    words = re.sub(r"[-_./]+", " ", path)
-    if any(deny_pattern(t).search(path) or deny_pattern(t).search(words) for t in deny):
+def name_rules(name, deny):
+    """Rules a path or a ref name hits. It is also read with its separators as spaces, so a
+    hyphenated name cannot hide a phone number or a deny term."""
+    name = name.translate(ASCII_SEPARATORS)
+    words = re.sub(r"[-_./]+", " ", name)
+    rules = [rule for rule, rx in RULES if rx.search(name) or rx.search(words)]
+    if any(deny_pattern(t).search(name) or deny_pattern(t).search(words) for t in deny):
         rules.append("denylist")
+    return rules
+
+
+def path_rules(path, deny):
+    rules = name_rules(path, deny)
     if not any(expected_path(path, pattern) for pattern in EXPECTED_PATHS):
         rules.append("unexpected-path")
     return rules
@@ -268,23 +298,66 @@ def history_findings(rev_args, deny):
     return found
 
 
+def tag_findings(obj, deny, seen=None):
+    """The name and message of an annotated tag, and of any tag it points to; nothing for a commit
+    (a lightweight tag). The tagger line is an identity, out of scope like a commit's author. The
+    message is scanned whole, signature included, so no line can hide text below it."""
+    seen = set() if seen is None else seen
+    found = []
+    try:
+        sha = git("rev-parse", "--verify", "--quiet", obj).decode().strip()
+        while sha not in seen and git("cat-file", "-t", sha).decode().strip() == "tag":
+            seen.add(sha)
+            header, _, message = git("cat-file", "-p", sha).partition(b"\n\n")
+            fields = {}
+            for line in header.split(b"\n"):
+                key, _, value = line.partition(b" ")
+                fields.setdefault(key, value)
+            label = f"tag {sha[:7]}"
+            name, undecodable = decode(fields.get(b"tag", b""))
+            found.extend((f"{label} name", 0, rule)
+                         for rule in (["undecodable"] if undecodable else name_rules(name, deny)))
+            found.extend(message_findings(f"{label} message", message, deny))
+            sha = fields.get(b"object", b"").decode()
+    except (subprocess.CalledProcessError, ValueError):  # ValueError: a header that is not UTF-8
+        found.append(("tag (withheld)", 0, "unreadable"))
+    return found
+
+
+def pre_push_updates(text):
+    """(local sha, remote ref, remote sha) for each ref in the pre-push hook's stdin that the push
+    creates or moves. A deletion publishes nothing, so it is left out."""
+    updates = []
+    for line in text.splitlines():
+        parts = line.split()
+        if len(parts) != 4:
+            continue
+        _local_ref, local_sha, remote_ref, remote_sha = parts
+        if local_sha != ZERO:
+            updates.append((local_sha, remote_ref, remote_sha))
+    return updates
+
+
 def pre_push_revs(text, remote="origin"):
     """Rev-list arguments for each ref in the pre-push hook's stdin.
 
     A new branch is scanned back to what THIS remote already has. Excluding every remote would
     skip commits that only another remote knows, such as a private repo's history being ported.
     """
-    revs = []
-    for line in text.splitlines():
-        parts = line.split()
-        if len(parts) != 4:
-            continue
-        _local_ref, local_sha, _remote_ref, remote_sha = parts
-        if local_sha == ZERO:
-            continue  # a branch deletion publishes nothing
-        revs.append([local_sha, "--not", f"--remotes={remote}"] if remote_sha == ZERO
-                    else [f"{remote_sha}..{local_sha}"])
-    return revs
+    return [[local_sha, "--not", f"--remotes={remote}"] if remote_sha == ZERO else [f"{remote_sha}..{local_sha}"]
+            for local_sha, _remote_ref, remote_sha in pre_push_updates(text)]
+
+
+def pre_push_findings(text, deny, remote="origin"):
+    """Everything a push publishes: the name of each ref it creates or moves, the name and message
+    of each annotated tag, and every outgoing commit. A ref name is withheld like a path."""
+    found, seen = [], set()
+    for n, (local_sha, remote_ref, _remote_sha) in enumerate(pre_push_updates(text), start=1):
+        found.extend((f"pushed ref #{n} (withheld)", 0, rule) for rule in name_rules(remote_ref, deny))
+        found.extend(tag_findings(local_sha, deny, seen))
+    for rev_args in pre_push_revs(text, remote):
+        found.extend(history_findings(rev_args, deny))
+    return found
 
 
 def main(argv=None):
@@ -295,15 +368,17 @@ def main(argv=None):
     mode.add_argument("--pre-push", nargs="?", const="origin", metavar="REMOTE",
                       help="scan the commits a push to REMOTE would publish (pre-push hook)")
     mode.add_argument("--message", metavar="FILE", help="scan a commit message file (commit-msg hook)")
+    mode.add_argument("--tag", metavar="OBJECT", help="scan an annotated tag's name and message (CI on a tag push)")
     args = ap.parse_args(argv)
     deny = load_denylist()
     if args.message:
-        found = message_findings("commit message", Path(args.message).read_bytes(), deny, cut_scissors=True)
-    elif args.history or args.pre_push:
-        ranges = [args.history.split()] if args.history else pre_push_revs(sys.stdin.read(), args.pre_push)
-        found = []
-        for rev_args in ranges:
-            found.extend(history_findings(rev_args, deny))
+        found = message_findings("commit message", Path(args.message).read_bytes(), deny, editor_file=True)
+    elif args.pre_push:
+        found = pre_push_findings(sys.stdin.read(), deny, args.pre_push)
+    elif args.history:
+        found = history_findings(args.history.split(), deny)
+    elif args.tag:
+        found = tag_findings(args.tag, deny)
     else:
         found = scan_blobs([(p, read(p, args.staged)) for p in tracked_files(args.staged)], deny)
     for line in format_findings(found):

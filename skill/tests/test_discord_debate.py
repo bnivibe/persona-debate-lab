@@ -166,5 +166,25 @@ class Prepublish(unittest.TestCase):
         self.assertNotIn("SECRETTOKEN", err.getvalue())
 
 
+class Followups(unittest.TestCase):
+    """Deferred review, D9: one odd item never drops the rest of the page."""
+
+    def fetch(self, raw):
+        def urlopen(req, timeout=None):
+            return FakeResponse(json.dumps(raw).encode())
+
+        return dd.fetch_user_messages("t", "c", user_id="me", urlopen=urlopen)
+
+    def test_null_author_and_non_object_items_are_skipped(self):
+        raw = [{"id": "10", "author": {"id": "me"}, "content": "note one"},
+               {"id": "40", "author": None, "content": "system notice"},
+               "junk", None, 7,
+               {"id": "20", "author": "not-an-object", "content": "odd"},
+               {"id": "30", "author": {"id": "me"}, "content": "note two"}]
+        out, latest = self.fetch(raw)
+        self.assertEqual([m["content"] for m in out], ["note one", "note two"])
+        self.assertEqual(latest, "40")
+
+
 if __name__ == "__main__":
     unittest.main()

@@ -607,5 +607,187 @@ class Prepublish(unittest.TestCase):
         self.assertEqual([r for (_p, _l, r) in cp.scan_blobs([("README.md", raw)], ["Zeta"])], ["undecodable"])
 
 
+class Followups(unittest.TestCase):
+    """Deferred review, D5, D8 and D10."""
+
+    def rules(self, text, deny=()):
+        return [rule for (_p, _l, rule) in cp.scan_text("x.md", text, list(deny))]
+
+    # D8: a phone typed with a Unicode dash or space is still a phone
+    def test_phones_with_unicode_separators_fail(self):
+        for sep in (chr(0x2013), chr(0x2011), chr(0x2212), chr(0x2010), chr(0x2014), chr(0xFF0D)):
+            self.assertEqual(self.rules("call " + NA_PHONE.replace("-", sep)), ["phone"], hex(ord(sep)))
+            self.assertEqual(self.rules("call " + KR_PHONE.replace("-", sep)), ["phone"], hex(ord(sep)))
+        for sep in (chr(0xA0), chr(0x202F), chr(0x2009), chr(0x3000)):
+            self.assertEqual(self.rules("call (604)" + sep + "555" + sep + "0123"), ["phone"], hex(ord(sep)))
+            self.assertEqual(self.rules("call +1" + sep + NA_PHONE.replace("-", sep)), ["phone"], hex(ord(sep)))
+
+    def test_unicode_separators_keep_line_numbers(self):
+        text = "ok\n" + NA_PHONE.replace("-", chr(0x2013)) + "\nok"
+        self.assertEqual(cp.scan_text("x.md", text, []), [("x.md", 2, "phone")])
+
+    def test_unicode_separator_in_a_path_is_still_a_phone(self):
+        path = "skill/bin/" + NA_PHONE.replace("-", chr(0x2011)) + ".py"
+        self.assertEqual([r for (_p, _l, r) in cp.scan_blobs([(path, b"clean")], [])], ["phone"])
+
+    def test_en_dash_ranges_are_not_phones(self):
+        self.assertEqual(self.rules("rounds 1" + chr(0x2013) + "3, years 2026" + chr(0x2013) + "2027"), [])
+
+    # D10: the identity lines git writes into the editor buffer, exactly as git writes them
+    TEMPLATE = ("\n# Please enter the commit message for your changes. Lines starting\n"
+                "# with '#' will be ignored, and an empty message aborts the commit.\n#\n"
+                "# Author:    A Person <" + EMAIL + ">\n"
+                "# Committer: A Person <" + "a" + "@" + "host.example.local>\n#\n# On branch main\n")
+
+    def message_exit(self, text):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "COMMIT_EDITMSG"
+            path.write_text(text)
+            with InRepo(d) as repo:
+                return repo.main("--message", str(path))
+
+    def test_editor_identity_lines_are_masked_in_message_mode(self):
+        self.assertEqual(self.message_exit("fix: tidy\n" + self.TEMPLATE), 0)
+
+    def test_editor_identity_names_are_still_scanned(self):
+        self.assertEqual(self.message_exit("fix: tidy\n" + self.TEMPLATE.replace("A Person <", "Zeta <", 1)), 1)
+
+    def test_identity_lines_not_in_gits_exact_shape_are_scanned(self):
+        for line in ["# Author: A Person <" + EMAIL + ">", "Author:    A Person <" + EMAIL + ">",
+                     "# Author:    A Person <" + EMAIL + "> and more", "# Reviewer:  A Person <" + EMAIL + ">",
+                     "# Author:     A Person <" + EMAIL + ">", "# Committer:  A Person <" + EMAIL + ">"]:
+            self.assertEqual(self.message_exit("fix: tidy\n\n" + line + "\n"), 1, line)
+
+    def test_stored_messages_never_mask_identity_lines(self):
+        found = cp.message_findings("msg", ("fix: tidy\n" + self.TEMPLATE).encode(), [])
+        self.assertEqual([r for (_p, _l, r) in found], ["email", "email"])
+
+    # D10: a regex end anchor after a digit is not a trailing dollar sign
+    def test_regex_end_anchors_are_not_money(self):
+        for text in ['re.compile(r"^0$")', "pat = '\\d+0$'", "x = `^[a-z]+1$`", 'r"\\d{3}0$"', 'r"(a)0$"']:
+            self.assertEqual(self.rules(text), [], text)
+
+    def test_trailing_dollar_amounts_in_quotes_still_fail(self):
+        for text in ['{"rent": "4,321' + '$"}', 'say "4,321' + '$"', "paid 4,321" + "$ total", "'rent 4,321" + "$'",
+                     "|rent|4,321" + "$|", "|rent|4321" + "$|", "rent *4321" + "$/mo*", "(+4321" + "$)",
+                     "rent|4321" + '$"']:
+            self.assertEqual(self.rules(text), ["money"], text)
+
+    # D10: 32-bit integer limits are not phones; a phone without separators still is
+    def test_integer_limits_are_not_phones(self):
+        for text in ["INT_MAX = 2147483647", "UINT32_MAX = 4294967295", "if n >= 2147483648:", "mask(4294967296)"]:
+            self.assertEqual(self.rules(text), [], text)
+        self.assertEqual(self.rules("call 604555" + "0123"), ["phone"])
+        self.assertEqual(self.rules("id 21474836470"), [])
+
+
+ZERO = "0" * 40
+
+
+class PushedRefs(unittest.TestCase):
+    """Deferred review, D5: a push publishes ref names and tag messages, not only commits."""
+
+    def repo(self, d):
+        git = make_repo(d)
+        (Path(d) / "README.md").write_text("clean\n")
+        git("add", "README.md")
+        git("commit", "-q", "-m", "one")
+        return git, git("rev-parse", "HEAD")
+
+    def push(self, d, stdin, deny="Zeta"):
+        with InRepo(d, deny):
+            found = cp.pre_push_findings(stdin, [deny])
+        return sorted(r for (_p, _l, r) in found), found
+
+    def test_annotated_tag_message_is_scanned(self):
+        with tempfile.TemporaryDirectory() as d:
+            git, _head = self.repo(d)
+            git("tag", "-a", "v1", "-m", "release for Zeta", "-m", "call " + NA_PHONE)
+            rules, _ = self.push(d, f"refs/tags/v1 {git('rev-parse', 'v1')} refs/tags/v1 {ZERO}\n")
+            self.assertEqual(rules, ["denylist", "phone"])
+
+    def test_clean_tag_and_its_tagger_line_pass(self):
+        with tempfile.TemporaryDirectory() as d:
+            git, _head = self.repo(d)
+            git("tag", "-a", "v1", "-m", "release one")
+            rules, _ = self.push(d, f"refs/tags/v1 {git('rev-parse', 'v1')} refs/tags/v1 {ZERO}\n")
+            self.assertEqual(rules, [])
+
+    def test_tag_name_inside_the_tag_object_is_scanned(self):
+        with tempfile.TemporaryDirectory() as d:
+            git, _head = self.repo(d)
+            git("tag", "-a", "zeta-release", "-m", "clean")
+            rules, found = self.push(d, f"refs/tags/zeta-release {git('rev-parse', 'zeta-release')} refs/tags/v9 {ZERO}\n")
+            self.assertEqual(rules, ["denylist"])
+            self.assertNotIn("zeta", "\n".join(cp.format_findings(found)).lower())
+
+    def test_tag_of_a_tag_is_followed(self):
+        with tempfile.TemporaryDirectory() as d:
+            git, _head = self.repo(d)
+            git("tag", "-a", "v1", "-m", "inner note for Zeta")
+            git("tag", "-a", "v2", "v1", "-m", "outer")
+            rules, _ = self.push(d, f"refs/tags/v2 {git('rev-parse', 'v2')} refs/tags/v2 {ZERO}\n")
+            self.assertEqual(rules, ["denylist"])
+
+    def test_lightweight_tag_has_no_message(self):
+        with tempfile.TemporaryDirectory() as d:
+            _git, head = self.repo(d)
+            rules, _ = self.push(d, f"refs/tags/v0 {head} refs/tags/v0 {ZERO}\n")
+            self.assertEqual(rules, [])
+
+    def test_pushed_ref_names_are_scanned_and_withheld(self):
+        with tempfile.TemporaryDirectory() as d:
+            _git, head = self.repo(d)
+            for ref, want in [("refs/heads/notes-for-zeta", ["denylist"]), ("refs/heads/call-" + NA_PHONE, ["phone"]),
+                              ("refs/tags/" + NA_PHONE.replace("-", "."), ["phone"]),
+                              ("refs/heads/persona-debate-lab/claude/guard-followups", [])]:
+                rules, found = self.push(d, f"refs/heads/main {head} {ref} {ZERO}\n")
+                self.assertEqual(rules, want, ref)
+                self.assertNotIn(ref.split("/")[-1], "\n".join(cp.format_findings(found)), ref)
+
+    def test_deleting_a_ref_scans_nothing(self):
+        with tempfile.TemporaryDirectory() as d:
+            _git, head = self.repo(d)
+            rules, _ = self.push(d, f"(delete) {ZERO} refs/heads/notes-for-zeta {head}\n")
+            self.assertEqual(rules, [])
+
+    def test_pre_push_main_exit_codes(self):
+        with tempfile.TemporaryDirectory() as d:
+            git, head = self.repo(d)
+            git("tag", "-a", "v1", "-m", "release for Zeta")
+            saved = sys.stdin
+            try:
+                with InRepo(d) as repo:
+                    sys.stdin = io.StringIO(f"refs/tags/v1 {git('rev-parse', 'v1')} refs/tags/v1 {ZERO}\n")
+                    self.assertEqual(repo.main("--pre-push", "origin"), 1)
+                    sys.stdin = io.StringIO(f"refs/heads/main {head} refs/heads/main {ZERO}\n")
+                    self.assertEqual(repo.main("--pre-push", "origin"), 0)
+            finally:
+                sys.stdin = saved
+
+    def test_malformed_tag_object_is_a_finding_not_a_traceback(self):
+        with tempfile.TemporaryDirectory() as d:
+            git, _head = self.repo(d)
+            raw = Path(d) / "tag.raw"
+            raw.write_bytes(b"object " + bytes([0xFF, 0xFE]) + b"\ntype commit\ntag v1\n\nclean\n")
+            sha = git("hash-object", "-t", "tag", "-w", "--literally", str(raw))
+            with InRepo(d):
+                found = cp.tag_findings(sha, ["Zeta"])
+            self.assertEqual([r for (_p, _l, r) in found], ["unreadable"])
+
+    # CI: the tag a tag push published
+    def test_tag_mode(self):
+        with tempfile.TemporaryDirectory() as d:
+            git, _head = self.repo(d)
+            git("tag", "-a", "v1", "-m", "release for Zeta")
+            git("tag", "-a", "v2", "-m", "release two")
+            git("tag", "v3")
+            with InRepo(d) as repo:
+                self.assertEqual(repo.main("--tag", "refs/tags/v1"), 1)
+                self.assertEqual(repo.main("--tag", "refs/tags/v2"), 0)
+                self.assertEqual(repo.main("--tag", "refs/tags/v3"), 0)
+                self.assertEqual(repo.main("--tag", "refs/tags/missing"), 1)
+
+
 if __name__ == "__main__":
     unittest.main()
