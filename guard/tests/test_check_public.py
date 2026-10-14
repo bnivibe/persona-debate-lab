@@ -661,6 +661,15 @@ class Followups(unittest.TestCase):
         found = cp.message_findings("msg", ("fix: tidy\n" + self.TEMPLATE).encode(), [])
         self.assertEqual([r for (_p, _l, r) in found], ["email", "email"])
 
+    # D10: a regex end anchor after a digit is not a trailing dollar sign
+    def test_regex_end_anchors_are_not_money(self):
+        for text in ['re.compile(r"^0$")', "pat = '\\d+0$'", "x = `^[a-z]+1$`", 'r"\\d{3}0$"', 'r"(a)0$"']:
+            self.assertEqual(self.rules(text), [], text)
+
+    def test_trailing_dollar_amounts_in_quotes_still_fail(self):
+        for text in ['{"rent": "4,321' + '$"}', 'say "4,321' + '$"', "paid 4,321" + "$ total", "'rent 4,321" + "$'"]:
+            self.assertEqual(self.rules(text), ["money"], text)
+
 
 if __name__ == "__main__":
     unittest.main()

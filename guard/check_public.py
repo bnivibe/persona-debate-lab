@@ -44,7 +44,11 @@ RULES = [
         r"|\$\d(?=\s?(?:per\b|an?\s|/\s?(?:mo|month|yr|year|wk|week|day|hr|hour)\b)|\.(?:\s|$))"
         r"|\b[a-z]{1,2}\$\s?\d"
         r"|[\u20A9\u20AC\u00A3]\s?\d"
-        r"|(?<![\w.])\d[\d,.]*[\$\u20A9\u20AC\u00A3](?![\w{(])"
+        r"|(?<![\w.])\d[\d,.]*[\u20A9\u20AC\u00A3](?![\w{(])"
+        # A trailing $ counts, except as a regex end anchor: after a digit that follows a regex
+        # token (^ + * ? | ) ] } or a backslash) and before a closing quote, | ) or /, as in r"^\d+0$".
+        r"|(?<![\w.^+*?|)\]}\\])\d[\d,.]*\$(?![\w{(])"
+        r"|(?<![\w.])\d[\d,.]*\$(?![\w{(\"'`|)/])"
         r"|\b(?:CAD|USD|KRW|EUR|GBP)\s?\d"
         r"|\d[\d,.]*\s?(?:k|m|mm|bn|million|billion|thousand)?\s?(?:CAD|USD|KRW|EUR|GBP|dollars?|bucks)\b"
         r"|\d[\d,.]*\s?(?:k|m|mm|bn|million|billion|thousand)\s?won\b(?!['\u2019])"
