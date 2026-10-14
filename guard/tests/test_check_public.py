@@ -668,7 +668,9 @@ class Followups(unittest.TestCase):
             self.assertEqual(self.rules(text), [], text)
 
     def test_trailing_dollar_amounts_in_quotes_still_fail(self):
-        for text in ['{"rent": "4,321' + '$"}', 'say "4,321' + '$"', "paid 4,321" + "$ total", "'rent 4,321" + "$'"]:
+        for text in ['{"rent": "4,321' + '$"}', 'say "4,321' + '$"', "paid 4,321" + "$ total", "'rent 4,321" + "$'",
+                     "|rent|4,321" + "$|", "|rent|4321" + "$|", "rent *4321" + "$/mo*", "(+4321" + "$)",
+                     "rent|4321" + '$"']:
             self.assertEqual(self.rules(text), ["money"], text)
 
     # D10: 32-bit integer limits are not phones; a phone without separators still is
