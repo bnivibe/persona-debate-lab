@@ -148,7 +148,7 @@ TRAILER_ADDRESS = re.compile(r"<[^<>\s]+@[^<>\s]+>")
 SCISSORS = re.compile(r"^(.) -{24} >8 -{24}\n\1 Do not modify or remove the line above\.$", re.MULTILINE)
 # The identity lines git writes into the editor file when the author differs from the committer
 # or the committer identity was guessed, exactly as git writes them with the default comment char.
-TEMPLATE_IDENTITY = re.compile(r"^# (?:Author: {4}|Committer: )[^<>]*<[^<>\s]+@[^<>\s]+>$")
+TEMPLATE_IDENTITY = re.compile(r"^# (?:Author: {4}|Committer: )(?!\s)[^<>]*<[^<>\s]+@[^<>\s]+>$")
 
 
 def scan_message(label, text, deny, editor_file=False):

@@ -654,7 +654,8 @@ class Followups(unittest.TestCase):
 
     def test_identity_lines_not_in_gits_exact_shape_are_scanned(self):
         for line in ["# Author: A Person <" + EMAIL + ">", "Author:    A Person <" + EMAIL + ">",
-                     "# Author:    A Person <" + EMAIL + "> and more", "# Reviewer:  A Person <" + EMAIL + ">"]:
+                     "# Author:    A Person <" + EMAIL + "> and more", "# Reviewer:  A Person <" + EMAIL + ">",
+                     "# Author:     A Person <" + EMAIL + ">", "# Committer:  A Person <" + EMAIL + ">"]:
             self.assertEqual(self.message_exit("fix: tidy\n\n" + line + "\n"), 1, line)
 
     def test_stored_messages_never_mask_identity_lines(self):
