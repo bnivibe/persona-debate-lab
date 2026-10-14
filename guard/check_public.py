@@ -10,8 +10,9 @@ logs cannot leak what the guard caught.
 
 Modes: the tracked files as they are on disk (default), the staged changes
 (--staged, pre-commit), a commit message (--message FILE, commit-msg), every
-commit and its message in a range (--history BASE..HEAD, CI), and the commits
-a push would publish (--pre-push, reads the pre-push hook's stdin).
+commit and its message in a range (--history BASE..HEAD, CI), what a push would
+publish (--pre-push, reads the pre-push hook's stdin): ref names, annotated tag
+names and messages, and commits.
 """
 import argparse
 import fnmatch
@@ -179,12 +180,19 @@ def expected_path(path, pattern):
     return len(parts) == len(wanted) and all(fnmatch.fnmatchcase(a, b) for a, b in zip(parts, wanted))
 
 
-def path_rules(path, deny):
-    path = path.translate(ASCII_SEPARATORS)
-    rules = [name for name, rx in RULES if rx.search(path)]
-    words = re.sub(r"[-_./]+", " ", path)
-    if any(deny_pattern(t).search(path) or deny_pattern(t).search(words) for t in deny):
+def name_rules(name, deny):
+    """Rules a path or a ref name hits. It is also read with its separators as spaces, so a
+    hyphenated name cannot hide a phone number or a deny term."""
+    name = name.translate(ASCII_SEPARATORS)
+    words = re.sub(r"[-_./]+", " ", name)
+    rules = [rule for rule, rx in RULES if rx.search(name) or rx.search(words)]
+    if any(deny_pattern(t).search(name) or deny_pattern(t).search(words) for t in deny):
         rules.append("denylist")
+    return rules
+
+
+def path_rules(path, deny):
+    rules = name_rules(path, deny)
     if not any(expected_path(path, pattern) for pattern in EXPECTED_PATHS):
         rules.append("unexpected-path")
     return rules
@@ -290,23 +298,66 @@ def history_findings(rev_args, deny):
     return found
 
 
+def tag_findings(obj, deny, seen=None):
+    """The name and message of an annotated tag, and of any tag it points to; nothing for a commit
+    (a lightweight tag). The tagger line is an identity, out of scope like a commit's author. The
+    message is scanned whole, signature included, so no line can hide text below it."""
+    seen = set() if seen is None else seen
+    found = []
+    try:
+        sha = git("rev-parse", "--verify", "--quiet", obj).decode().strip()
+        while sha not in seen and git("cat-file", "-t", sha).decode().strip() == "tag":
+            seen.add(sha)
+            header, _, message = git("cat-file", "-p", sha).partition(b"\n\n")
+            fields = {}
+            for line in header.split(b"\n"):
+                key, _, value = line.partition(b" ")
+                fields.setdefault(key, value)
+            label = f"tag {sha[:7]}"
+            name, undecodable = decode(fields.get(b"tag", b""))
+            found.extend((f"{label} name", 0, rule)
+                         for rule in (["undecodable"] if undecodable else name_rules(name, deny)))
+            found.extend(message_findings(f"{label} message", message, deny))
+            sha = fields.get(b"object", b"").decode()
+    except subprocess.CalledProcessError:
+        found.append(("tag (withheld)", 0, "unreadable"))
+    return found
+
+
+def pre_push_updates(text):
+    """(local sha, remote ref, remote sha) for each ref in the pre-push hook's stdin that the push
+    creates or moves. A deletion publishes nothing, so it is left out."""
+    updates = []
+    for line in text.splitlines():
+        parts = line.split()
+        if len(parts) != 4:
+            continue
+        _local_ref, local_sha, remote_ref, remote_sha = parts
+        if local_sha != ZERO:
+            updates.append((local_sha, remote_ref, remote_sha))
+    return updates
+
+
 def pre_push_revs(text, remote="origin"):
     """Rev-list arguments for each ref in the pre-push hook's stdin.
 
     A new branch is scanned back to what THIS remote already has. Excluding every remote would
     skip commits that only another remote knows, such as a private repo's history being ported.
     """
-    revs = []
-    for line in text.splitlines():
-        parts = line.split()
-        if len(parts) != 4:
-            continue
-        _local_ref, local_sha, _remote_ref, remote_sha = parts
-        if local_sha == ZERO:
-            continue  # a branch deletion publishes nothing
-        revs.append([local_sha, "--not", f"--remotes={remote}"] if remote_sha == ZERO
-                    else [f"{remote_sha}..{local_sha}"])
-    return revs
+    return [[local_sha, "--not", f"--remotes={remote}"] if remote_sha == ZERO else [f"{remote_sha}..{local_sha}"]
+            for local_sha, _remote_ref, remote_sha in pre_push_updates(text)]
+
+
+def pre_push_findings(text, deny, remote="origin"):
+    """Everything a push publishes: the name of each ref it creates or moves, the name and message
+    of each annotated tag, and every outgoing commit. A ref name is withheld like a path."""
+    found, seen = [], set()
+    for n, (local_sha, remote_ref, _remote_sha) in enumerate(pre_push_updates(text), start=1):
+        found.extend((f"pushed ref #{n} (withheld)", 0, rule) for rule in name_rules(remote_ref, deny))
+        found.extend(tag_findings(local_sha, deny, seen))
+    for rev_args in pre_push_revs(text, remote):
+        found.extend(history_findings(rev_args, deny))
+    return found
 
 
 def main(argv=None):
@@ -321,11 +372,10 @@ def main(argv=None):
     deny = load_denylist()
     if args.message:
         found = message_findings("commit message", Path(args.message).read_bytes(), deny, editor_file=True)
-    elif args.history or args.pre_push:
-        ranges = [args.history.split()] if args.history else pre_push_revs(sys.stdin.read(), args.pre_push)
-        found = []
-        for rev_args in ranges:
-            found.extend(history_findings(rev_args, deny))
+    elif args.pre_push:
+        found = pre_push_findings(sys.stdin.read(), deny, args.pre_push)
+    elif args.history:
+        found = history_findings(args.history.split(), deny)
     else:
         found = scan_blobs([(p, read(p, args.staged)) for p in tracked_files(args.staged)], deny)
     for line in format_findings(found):

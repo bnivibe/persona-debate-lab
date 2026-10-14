@@ -678,5 +678,90 @@ class Followups(unittest.TestCase):
         self.assertEqual(self.rules("id 21474836470"), [])
 
 
+ZERO = "0" * 40
+
+
+class PushedRefs(unittest.TestCase):
+    """Deferred review, D5: a push publishes ref names and tag messages, not only commits."""
+
+    def repo(self, d):
+        git = make_repo(d)
+        (Path(d) / "README.md").write_text("clean\n")
+        git("add", "README.md")
+        git("commit", "-q", "-m", "one")
+        return git, git("rev-parse", "HEAD")
+
+    def push(self, d, stdin, deny="Zeta"):
+        with InRepo(d, deny):
+            found = cp.pre_push_findings(stdin, [deny])
+        return sorted(r for (_p, _l, r) in found), found
+
+    def test_annotated_tag_message_is_scanned(self):
+        with tempfile.TemporaryDirectory() as d:
+            git, _head = self.repo(d)
+            git("tag", "-a", "v1", "-m", "release for Zeta", "-m", "call " + NA_PHONE)
+            rules, _ = self.push(d, f"refs/tags/v1 {git('rev-parse', 'v1')} refs/tags/v1 {ZERO}\n")
+            self.assertEqual(rules, ["denylist", "phone"])
+
+    def test_clean_tag_and_its_tagger_line_pass(self):
+        with tempfile.TemporaryDirectory() as d:
+            git, _head = self.repo(d)
+            git("tag", "-a", "v1", "-m", "release one")
+            rules, _ = self.push(d, f"refs/tags/v1 {git('rev-parse', 'v1')} refs/tags/v1 {ZERO}\n")
+            self.assertEqual(rules, [])
+
+    def test_tag_name_inside_the_tag_object_is_scanned(self):
+        with tempfile.TemporaryDirectory() as d:
+            git, _head = self.repo(d)
+            git("tag", "-a", "zeta-release", "-m", "clean")
+            rules, found = self.push(d, f"refs/tags/zeta-release {git('rev-parse', 'zeta-release')} refs/tags/v9 {ZERO}\n")
+            self.assertEqual(rules, ["denylist"])
+            self.assertNotIn("zeta", "\n".join(cp.format_findings(found)).lower())
+
+    def test_tag_of_a_tag_is_followed(self):
+        with tempfile.TemporaryDirectory() as d:
+            git, _head = self.repo(d)
+            git("tag", "-a", "v1", "-m", "inner note for Zeta")
+            git("tag", "-a", "v2", "v1", "-m", "outer")
+            rules, _ = self.push(d, f"refs/tags/v2 {git('rev-parse', 'v2')} refs/tags/v2 {ZERO}\n")
+            self.assertEqual(rules, ["denylist"])
+
+    def test_lightweight_tag_has_no_message(self):
+        with tempfile.TemporaryDirectory() as d:
+            _git, head = self.repo(d)
+            rules, _ = self.push(d, f"refs/tags/v0 {head} refs/tags/v0 {ZERO}\n")
+            self.assertEqual(rules, [])
+
+    def test_pushed_ref_names_are_scanned_and_withheld(self):
+        with tempfile.TemporaryDirectory() as d:
+            _git, head = self.repo(d)
+            for ref, want in [("refs/heads/notes-for-zeta", ["denylist"]), ("refs/heads/call-" + NA_PHONE, ["phone"]),
+                              ("refs/tags/" + NA_PHONE.replace("-", "."), ["phone"]),
+                              ("refs/heads/persona-debate-lab/claude/guard-followups", [])]:
+                rules, found = self.push(d, f"refs/heads/main {head} {ref} {ZERO}\n")
+                self.assertEqual(rules, want, ref)
+                self.assertNotIn(ref.split("/")[-1], "\n".join(cp.format_findings(found)), ref)
+
+    def test_deleting_a_ref_scans_nothing(self):
+        with tempfile.TemporaryDirectory() as d:
+            _git, head = self.repo(d)
+            rules, _ = self.push(d, f"(delete) {ZERO} refs/heads/notes-for-zeta {head}\n")
+            self.assertEqual(rules, [])
+
+    def test_pre_push_main_exit_codes(self):
+        with tempfile.TemporaryDirectory() as d:
+            git, head = self.repo(d)
+            git("tag", "-a", "v1", "-m", "release for Zeta")
+            saved = sys.stdin
+            try:
+                with InRepo(d) as repo:
+                    sys.stdin = io.StringIO(f"refs/tags/v1 {git('rev-parse', 'v1')} refs/tags/v1 {ZERO}\n")
+                    self.assertEqual(repo.main("--pre-push", "origin"), 1)
+                    sys.stdin = io.StringIO(f"refs/heads/main {head} refs/heads/main {ZERO}\n")
+                    self.assertEqual(repo.main("--pre-push", "origin"), 0)
+            finally:
+                sys.stdin = saved
+
+
 if __name__ == "__main__":
     unittest.main()
