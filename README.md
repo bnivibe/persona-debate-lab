@@ -32,12 +32,25 @@ Method: 0 rated round(s), 1 awaiting an outcome; average rating n/a of 5; ideas 
 ## Privacy
 
 Debates are about real decisions, so transcripts stay private. This repo holds only the method and
-counts. `guard/check_public.py` blocks non-English text, contact details, money amounts, links
-outside an allowlist, a private list of names, files it cannot read as text, and any path outside
-the expected layout. It runs in the pre-commit, commit-msg and pre-push hooks (install them once
-per clone with `sh guard/install-hooks.sh`) and in CI, which checks every commit of a push or pull
-request, not only the final snapshot. Pull requests from forks fail the guard, because the private
-list is a repository secret that forks cannot read.
+counts. `guard/check_public.py` blocks Hangul, contact details, money amounts, links outside an
+allowlist, a private list of names, files it cannot read as text, and any path outside the expected
+layout. It runs in the pre-commit, commit-msg and pre-push hooks (install them once per clone with
+`sh guard/install-hooks.sh`) and in CI, which checks every commit of a push or pull request, not
+only the final snapshot. Before a push it also checks the name of every branch and tag being pushed
+and the message of every annotated tag, and CI checks the tag message again on a tag push. Pull
+requests from forks fail the guard, because the private list is a repository secret that forks
+cannot read.
+
+What the guard cannot see:
+
+- Only Hangul is blocked, not every script other than English. Text in another script passes the
+  script check; only the private list of names still applies to it.
+- It reads one line, or one name, at a time, so a value split into pieces and joined in code (a
+  phone number built from string concatenation, for one) passes unseen. The tests build their
+  fixtures exactly that way so the guard does not flag the tests themselves. That is why every
+  fixture must be a reserved fiction value and nothing else: phone numbers 555-0100 to 555-0199,
+  reserved example domains such as example.org or the .invalid ending, and plainly made-up amounts
+  such as 4,321. Never put a value from anyone's records into a test, whole or split.
 
 ## License
 
