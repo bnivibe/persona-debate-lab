@@ -1,0 +1,5 @@
+date,thread,category,round,persona,proposals,survived,attacked,fact_errors,adopted,outcome
+2026-10-13,T001,career,1,hiring-manager,2,1,3,0,,pending
+2026-10-13,T001,career,1,tech-lead-mid,2,2,0,0,,pending
+2026-10-13,T001,career,1,wh-settler,2,1,1,0,,pending
+2026-10-13,T001,career,1,backend-junior,2,2,0,1,,pending
