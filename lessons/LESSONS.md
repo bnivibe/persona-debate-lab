@@ -1,0 +1,31 @@
+# Lessons
+
+Each lesson is about the method, never about a situation. Newest first.
+
+## 2026-10-13 · Personas misread facts, and other personas do not catch it
+In one round a persona widened a single fact into two ("both companies said X" when only one
+did). No rebuttal noticed. A dedicated fact-check step before synthesis now records misreads per
+persona, and the scorecard keeps a `fact_errors` count.
+
+## 2026-10-13 · A consensus kill is a strong signal
+Three of four rebuttals independently attacked the same idea for the same reason (the audience
+in the room could not answer it). When rebuttals converge like that, kill the idea without
+waiting for another round.
+
+## 2026-10-13 · Describe the venue, not just the topic
+Personas weighed who would hear the question as heavily as the question itself. Put the
+audience and the time available into the thread context, or the proposals assume an ideal room.
+
+## 2026-07-31 · Subagents can return only a status string
+Eight runs in a row returned "done" or "idle" instead of content. Pre-run one persona before
+launching the rest; when one returns a status string, ask the same agent once to re-output.
+
+## 2026-07-22 · Cast by job, not by stance
+With stance-based personas, four of five rebuttals in one round hit the single defender and the
+round became a pile-on. Job-based personas take positions from their situation, so the sides
+change with the topic.
+
+## 2026-07-22 · Keep the thread context short
+The whole thread file is pasted into every persona prompt. A long file slows rounds, costs more,
+and drags new rounds toward old conclusions. Keep transcripts elsewhere and pass only the
+current candidates, dead branches and steering.
