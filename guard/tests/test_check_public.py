@@ -633,6 +633,34 @@ class Followups(unittest.TestCase):
     def test_en_dash_ranges_are_not_phones(self):
         self.assertEqual(self.rules("rounds 1" + chr(0x2013) + "3, years 2026" + chr(0x2013) + "2027"), [])
 
+    # D10: the identity lines git writes into the editor buffer, exactly as git writes them
+    TEMPLATE = ("\n# Please enter the commit message for your changes. Lines starting\n"
+                "# with '#' will be ignored, and an empty message aborts the commit.\n#\n"
+                "# Author:    A Person <" + EMAIL + ">\n"
+                "# Committer: A Person <" + "a" + "@" + "host.example.local>\n#\n# On branch main\n")
+
+    def message_exit(self, text):
+        with tempfile.TemporaryDirectory() as d:
+            path = Path(d) / "COMMIT_EDITMSG"
+            path.write_text(text)
+            with InRepo(d) as repo:
+                return repo.main("--message", str(path))
+
+    def test_editor_identity_lines_are_masked_in_message_mode(self):
+        self.assertEqual(self.message_exit("fix: tidy\n" + self.TEMPLATE), 0)
+
+    def test_editor_identity_names_are_still_scanned(self):
+        self.assertEqual(self.message_exit("fix: tidy\n" + self.TEMPLATE.replace("A Person <", "Zeta <", 1)), 1)
+
+    def test_identity_lines_not_in_gits_exact_shape_are_scanned(self):
+        for line in ["# Author: A Person <" + EMAIL + ">", "Author:    A Person <" + EMAIL + ">",
+                     "# Author:    A Person <" + EMAIL + "> and more", "# Reviewer:  A Person <" + EMAIL + ">"]:
+            self.assertEqual(self.message_exit("fix: tidy\n\n" + line + "\n"), 1, line)
+
+    def test_stored_messages_never_mask_identity_lines(self):
+        found = cp.message_findings("msg", ("fix: tidy\n" + self.TEMPLATE).encode(), [])
+        self.assertEqual([r for (_p, _l, r) in found], ["email", "email"])
+
 
 if __name__ == "__main__":
     unittest.main()

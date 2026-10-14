@@ -137,27 +137,33 @@ TRAILER = re.compile(r"^[A-Za-z][A-Za-z-]*-by:\s", re.IGNORECASE)
 TRAILER_ADDRESS = re.compile(r"<[^<>\s]+@[^<>\s]+>")
 # Git's own scissors block, exactly as `git commit -v` writes it into the editor file.
 SCISSORS = re.compile(r"^(.) -{24} >8 -{24}\n\1 Do not modify or remove the line above\.$", re.MULTILINE)
+# The identity lines git writes into the editor file when the author differs from the committer
+# or the committer identity was guessed, exactly as git writes them with the default comment char.
+TEMPLATE_IDENTITY = re.compile(r"^# (?:Author: {4}|Committer: )[^<>]*<[^<>\s]+@[^<>\s]+>$")
 
 
-def scan_message(label, text, deny, cut_scissors=False):
+def scan_message(label, text, deny, editor_file=False):
     """Commit messages are public too, so every line is scanned, comment lines included.
 
     Only the address inside a trailer (an author identity, out of scope) is masked; the rest of a
-    trailer line is scanned. Only the commit-msg hook cuts at git's own scissors block (the
-    `git commit -v` diff below it is not the message); a stored message is scanned whole.
+    trailer line is scanned. Only the commit-msg hook's editor file is cut at git's own scissors
+    block (the `git commit -v` diff below it is not the message) and has the address masked on
+    git's own Author and Committer lines; a stored message is scanned whole.
     """
-    cut = SCISSORS.search(text) if cut_scissors else None
+    cut = SCISSORS.search(text) if editor_file else None
     if cut:
         text = text[:cut.start()]
-    lines = [TRAILER_ADDRESS.sub("<>", line) if TRAILER.match(line) else line for line in text.splitlines()]
+    lines = [TRAILER_ADDRESS.sub("<>", line)
+             if TRAILER.match(line) or (editor_file and TEMPLATE_IDENTITY.match(line)) else line
+             for line in text.splitlines()]
     return scan_text(label, "\n".join(lines), deny)
 
 
-def message_findings(label, raw, deny, cut_scissors=False):
+def message_findings(label, raw, deny, editor_file=False):
     text, undecodable = decode(raw)
     if undecodable:
         return [(label, 0, "undecodable")]
-    return scan_message(label, text, deny, cut_scissors)
+    return scan_message(label, text, deny, editor_file)
 
 
 def expected_path(path, pattern):
@@ -306,7 +312,7 @@ def main(argv=None):
     args = ap.parse_args(argv)
     deny = load_denylist()
     if args.message:
-        found = message_findings("commit message", Path(args.message).read_bytes(), deny, cut_scissors=True)
+        found = message_findings("commit message", Path(args.message).read_bytes(), deny, editor_file=True)
     elif args.history or args.pre_push:
         ranges = [args.history.split()] if args.history else pre_push_revs(sys.stdin.read(), args.pre_push)
         found = []
