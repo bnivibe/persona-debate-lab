@@ -765,6 +765,16 @@ class PushedRefs(unittest.TestCase):
             finally:
                 sys.stdin = saved
 
+    def test_malformed_tag_object_is_a_finding_not_a_traceback(self):
+        with tempfile.TemporaryDirectory() as d:
+            git, _head = self.repo(d)
+            raw = Path(d) / "tag.raw"
+            raw.write_bytes(b"object " + bytes([0xFF, 0xFE]) + b"\ntype commit\ntag v1\n\nclean\n")
+            sha = git("hash-object", "-t", "tag", "-w", "--literally", str(raw))
+            with InRepo(d):
+                found = cp.tag_findings(sha, ["Zeta"])
+            self.assertEqual([r for (_p, _l, r) in found], ["unreadable"])
+
     # CI: the tag a tag push published
     def test_tag_mode(self):
         with tempfile.TemporaryDirectory() as d:

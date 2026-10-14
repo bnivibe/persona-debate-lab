@@ -319,7 +319,7 @@ def tag_findings(obj, deny, seen=None):
                          for rule in (["undecodable"] if undecodable else name_rules(name, deny)))
             found.extend(message_findings(f"{label} message", message, deny))
             sha = fields.get(b"object", b"").decode()
-    except subprocess.CalledProcessError:
+    except (subprocess.CalledProcessError, ValueError):  # ValueError: a header that is not UTF-8
         found.append(("tag (withheld)", 0, "unreadable"))
     return found
 
