@@ -22,6 +22,8 @@ import sys
 from pathlib import Path
 from urllib.parse import urlsplit
 
+# Constants code writes often enough that a ten-digit run equal to one is not taken for a phone.
+INT_LIMITS = "|".join(("2147483647", "2147483648", "4294967295", "4294967296"))
 RULES = [
     ("hangul", re.compile(
         r"[\u1100-\u11FF\u3130-\u318F\u3200-\u321E\u3260-\u327E\uA960-\uA97F"
@@ -30,8 +32,10 @@ RULES = [
     ("phone", re.compile(
         # North American with separators: (NXX) NXX-XXXX, NXX.NXX.XXXX, +1 NXX NXX XXXX, also glued to words.
         r"(?<![\d-])(?:\+?1[ .-]?)?(?:\([2-9]\d{2}\)\s?|[2-9]\d{2}[ .-])[2-9]\d{2}[ .-]\d{4}(?![\d-])"
-        # North American without separators; date-like runs (2026101412) are left alone.
-        r"|(?<![\w-])(?:\+1)?(?!20\d{2}(?:0[1-9]|1[0-2]))[2-9]\d{2}[2-9]\d{6}(?![\w-])"
+        # North American without separators; date-like runs (2026101412) and the 32-bit
+        # integer limits are left alone.
+        r"|(?<![\w-])(?:\+1)?(?!20\d{2}(?:0[1-9]|1[0-2]))(?!(?:" + INT_LIMITS + r")(?![\w-]))"
+        r"[2-9]\d{2}[2-9]\d{6}(?![\w-])"
         # Korean mobiles, with or without +82 or 82 and an optional (0).
         r"|(?<![\w-])(?:\+?82[ .-]?(?:\(0\))?1[016789]|01[016789])[ .-]?\d{3,4}[ .-]?\d{4}(?![\w-])"
         # Korean landlines: 0X-XXX-XXXX and 0XX.XXX.XXXX, with a dash, dot, space or closing paren.

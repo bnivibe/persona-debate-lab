@@ -670,6 +670,13 @@ class Followups(unittest.TestCase):
         for text in ['{"rent": "4,321' + '$"}', 'say "4,321' + '$"', "paid 4,321" + "$ total", "'rent 4,321" + "$'"]:
             self.assertEqual(self.rules(text), ["money"], text)
 
+    # D10: 32-bit integer limits are not phones; a phone without separators still is
+    def test_integer_limits_are_not_phones(self):
+        for text in ["INT_MAX = 2147483647", "UINT32_MAX = 4294967295", "if n >= 2147483648:", "mask(4294967296)"]:
+            self.assertEqual(self.rules(text), [], text)
+        self.assertEqual(self.rules("call 604555" + "0123"), ["phone"])
+        self.assertEqual(self.rules("id 21474836470"), [])
+
 
 if __name__ == "__main__":
     unittest.main()
