@@ -16,6 +16,23 @@ the protocol, and the lessons learned.
 - `skill/`: the Claude Code skill that runs rounds, plus `score.py` and a chat mirror
 - `guard/`: the privacy guard that keeps personal details out of this repo
 
+## How a round runs
+
+```mermaid
+flowchart LR
+    C["Cast 3 to 5<br/>by track record"] --> P["Proposals<br/>in parallel"]
+    P --> X["Cross-<br/>rebuttal"]
+    X --> F["Fact<br/>check"]
+    F --> S["Synthesis"]
+    S --> D["The user<br/>decides"]
+    D --> O["Outcome<br/>scored"]
+    O -. scorecards .-> C
+```
+
+The user approves the cast before any persona runs and makes the decision after the synthesis.
+When the real event has happened, the outcome goes back into each persona's scorecard, so the
+next cast picks better. `METHOD.md` has every step.
+
 ## Track record
 
 <!-- scoreboard:start -->
