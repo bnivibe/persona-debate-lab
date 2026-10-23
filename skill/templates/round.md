@@ -1,23 +1,37 @@
-# Round NN · YYYY-MM-DD
+# Round NN · YYYY-MM-DD (meeting)
 
 cast: <ids>
+topic, in the user's words: <quote>
 
-## Proposals
+<!-- agent ids while the meeting runs: <id>=<agent id>, ... -->
 
-### <label> (`<id>`)
+## Minutes
 
-## Cross-rebuttal
-
-### <label> (`<id>`) rebuts <target label>, idea N
-
-## Fact check
-
-## Synthesis
-
-- Survived:
-- Dead (reason):
-- Nobody broke:
-- Most interesting clash:
+- Decided:
+- Held up under objection:
+- Never challenged:
+- Withdrawn or dropped (by whom, why):
+- The user's answers:
+- Open questions for the user:
 - Misreads:
 - Missing perspective:
-- Next directions (three):
+- Next topics (up to three):
+
+## Transcript
+
+### Opening statements
+
+#### <label> (`<id>`)
+
+### Turn 1
+
+- <label>: <move> <idea label>: <text>
+- Moderator: fact flag: <text>
+
+### Questions to the user
+
+- <label> asked: <question>. The user: <answer>
+
+### Closing statements
+
+- <label>: supports <...>; still doubts <...>
