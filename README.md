@@ -38,12 +38,15 @@ next cast picks better. `METHOD.md` has every step.
 <!-- scoreboard:start -->
 | persona | rounds | proposals | survival | fact errors | adopted | hit rate |
 |---|---|---|---|---|---|---|
-| `backend-junior` | 1 | 2 | 100% | 1 | 0 | n/a |
+| `solo-indie` | 1 | 2 | 50% | 1 | 0 | n/a |
+| `data-engineer` | 1 | 2 | 50% | 0 | 0 | n/a |
+| `backend-junior` | 2 | 4 | 100% | 1 | 0 | n/a |
 | `tech-lead-mid` | 1 | 2 | 100% | 0 | 0 | n/a |
-| `hiring-manager` | 1 | 2 | 50% | 0 | 0 | n/a |
+| `migration-veteran` | 1 | 2 | 100% | 0 | 0 | n/a |
+| `hiring-manager` | 2 | 4 | 75% | 0 | 0 | n/a |
 | `wh-settler` | 1 | 2 | 50% | 0 | 0 | n/a |
 
-Method: 0 rated round(s), 1 awaiting an outcome; average rating n/a of 5; ideas used n/a.
+Method: 0 rated round(s), 2 awaiting an outcome; average rating n/a of 5; ideas used n/a.
 <!-- scoreboard:end -->
 
 ## Privacy
