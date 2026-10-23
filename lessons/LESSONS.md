@@ -2,6 +2,16 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-10-23 · A round became a meeting with the user in the room
+Two scripted passes (proposals, one cross-rebuttal) left gaps the user noticed. Each persona
+rebutted one idea, so most ideas were never challenged and still counted as survivors. The design
+the user was shown came from the moderator combining survivors after the round; the room never
+argued it. A round's summary primed the next round. And personas could not ask the user, so they
+filled private facts and preferences themselves. Now personas keep their memory through the
+meeting, talk in turns, ask the user, and the minutes split ideas that held up from ideas nobody
+challenged. Rounds recorded before this lesson (up to T002 round 4) ran the old way; compare
+their ratings with the meetings' before keeping this.
+
 ## 2026-10-13 · Personas misread facts, and other personas do not catch it
 In one round a persona widened a single fact into two ("both companies said X" when only one
 did). No rebuttal noticed. A dedicated fact-check step before synthesis now records misreads per
