@@ -1,37 +1,42 @@
 # persona-debate-lab
 
-A method for running multi-persona AI debates and scoring the personas against what actually
-happened afterwards.
+A method for running multi-persona AI debates as meetings with the user in the room, and scoring
+the personas against what actually happened afterwards.
 
 Most persona debates stop at the transcript. This repo keeps the parts that make the next debate
 better: one roster of personas with their known biases, a scorecard per persona (did their ideas
 survive rebuttal, did they misread facts, did the user end up using their ideas, did it work),
 the protocol, and the lessons learned.
 
-- `METHOD.md`: how a round runs, step by step
+- `METHOD.md`: how a meeting runs, step by step
 - `personas/roster.md`: the cast
 - `scorecards/rounds.csv`: one row per persona per round, counts only
 - `scorecards/outcomes.csv`: one row per round, with the user's 1 to 5 rating of how useful it was
 - `lessons/LESSONS.md`: what changed the method and why
-- `skill/`: the Claude Code skill that runs rounds, plus `score.py` and a chat mirror
+- `skill/`: the Claude Code skill that runs meetings, its templates, `score.py` and a chat mirror
 - `guard/`: the privacy guard that keeps personal details out of this repo
 
-## How a round runs
+## How a meeting runs
 
 ```mermaid
 flowchart LR
-    C["Cast 3 to 5<br/>by track record"] --> P["Proposals<br/>in parallel"]
-    P --> X["Cross-<br/>rebuttal"]
-    X --> F["Fact<br/>check"]
-    F --> S["Synthesis"]
-    S --> D["The user<br/>decides"]
-    D --> O["Outcome<br/>scored"]
-    O -. scorecards .-> C
+    C["Cast 3 to 5<br/>by track record"] --> O["Opening<br/>statements"]
+    O --> T["Turns: object, support,<br/>answer, ask"]
+    T -- "a question only<br/>the user can answer" --> U["The user<br/>answers"]
+    U --> T
+    T --> E["Closing<br/>statements"]
+    E --> M["Minutes"]
+    M --> D["The user<br/>decides"]
+    D --> S["Outcome<br/>scored"]
+    S -. scorecards .-> C
 ```
 
-The user approves the cast before any persona runs and makes the decision after the synthesis.
-When the real event has happened, the outcome goes back into each persona's scorecard, so the
-next cast picks better. `METHOD.md` has every step.
+The personas talk to each other in turns, and each one keeps its memory for the whole meeting.
+When one needs a fact or a decision only the user has, the meeting stops and asks the user, and
+the answer goes to everyone. The moderator has no opinion: it gives the floor, flags misread facts
+as they happen, and writes minutes that hold only what was said in the room. When the real event
+has happened, the outcome goes back into each persona's scorecard, so the next cast picks better.
+`METHOD.md` has every step.
 
 ## Track record
 
