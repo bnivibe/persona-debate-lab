@@ -18,3 +18,8 @@ date,thread,category,round,persona,proposals,survived,attacked,fact_errors,adopt
 2026-10-23,T002,learning,5,hiring-manager,3,2,0,0,,pending
 2026-10-23,T002,learning,5,migration-veteran,2,2,0,0,,pending
 2026-10-23,T002,learning,5,agent-engineer,2,1,1,0,,pending
+2026-10-23,T002,learning,6,data-engineer,2,1,0,0,,pending
+2026-10-23,T002,learning,6,migration-veteran,3,2,0,0,,pending
+2026-10-23,T002,learning,6,agent-engineer,2,2,0,0,,pending
+2026-10-23,T002,learning,6,hiring-manager,3,3,0,0,,pending
+2026-10-23,T002,learning,6,security-officer,2,2,2,0,,pending
