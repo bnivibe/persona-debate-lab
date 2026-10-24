@@ -23,3 +23,13 @@ date,thread,category,round,persona,proposals,survived,attacked,fact_errors,adopt
 2026-10-23,T002,learning,6,agent-engineer,2,2,0,0,,pending
 2026-10-23,T002,learning,6,hiring-manager,3,3,0,0,,pending
 2026-10-23,T002,learning,6,security-officer,2,2,2,0,,pending
+2026-10-24,T003,career,1,product-designer,3,1,2,0,,pending
+2026-10-24,T003,career,1,hiring-manager,2,2,0,0,,pending
+2026-10-24,T003,career,1,solo-indie,3,2,0,0,,pending
+2026-10-24,T003,career,1,platform-vendor,2,0,1,0,,pending
+2026-10-24,T003,career,1,learning-scientist,2,1,0,0,,pending
+2026-10-24,T003,career,2,product-manager,4,3,0,1,,pending
+2026-10-24,T003,career,2,startup-cto,4,3,0,1,,pending
+2026-10-24,T003,career,2,product-designer,4,3,1,1,,pending
+2026-10-24,T003,career,2,solo-indie,4,2,0,1,,pending
+2026-10-24,T003,career,2,hiring-manager,4,2,0,0,,pending
