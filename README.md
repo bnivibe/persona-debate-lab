@@ -1,5 +1,11 @@
 # persona-debate-lab
 
+<!-- bnitech:card -->
+- **Problem:** Multi-persona AI debates end in a transcript, and nobody checks whose ideas held up or got used.
+- **Who it helps:** Anyone who uses Claude Code to think a decision through from several sides.
+- **Try it (about 10 minutes):** Clone this repo, copy `skill/` to `~/.claude/skills/idea-debate/`, give it the two paths in the Settings table of `skill/SKILL.md` (your clone, and a private folder for notes), then ask Claude Code to debate a decision you face.
+<!-- /bnitech:card -->
+
 A method for running multi-persona AI debates as meetings with the user in the room, and scoring
 the personas against what actually happened afterwards.
 
