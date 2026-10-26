@@ -2,6 +2,12 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-10-26 · The first rated round scored 2 of 5
+The user used two of eight ideas and said the cast never grasped the setting: what kind of room it
+was and who would be answering. That round ran before the context checklist existed. The checklist
+(goal, decision date, audience and venue, facts with sources, constraints) is now step 2 of a round;
+the next ratings will show whether it closes this gap.
+
 ## 2026-10-23 · A round became a meeting with the user in the room
 Two scripted passes (proposals, one cross-rebuttal) left gaps the user noticed. Each persona
 rebutted one idea, so most ideas were never challenged and still counted as survivors. The design

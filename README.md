@@ -66,7 +66,7 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 | `learning-scientist` | 2 | 4 | 50% | 1 | 0 | n/a |
 | `agent-engineer` | 3 | 6 | 83% | 0 | 0 | n/a |
 
-Method: 0 rated round(s), 7 awaiting an outcome; average rating n/a of 5; ideas used n/a.
+Method: 1 rated round(s), 6 awaiting an outcome; average rating 2.0 of 5; ideas used 25%.
 <!-- scoreboard:end -->
 
 ## Privacy
