@@ -37,3 +37,7 @@ date,thread,category,round,persona,proposals,survived,attacked,fact_errors,adopt
 2026-10-26,T004,tech,1,hiring-manager,2,0,1,0,,pending
 2026-10-26,T004,tech,1,solo-indie,2,1,1,0,,pending
 2026-10-26,T004,tech,1,oss-maintainer,2,1,1,0,,pending
+2026-10-27,T006,tech,1,sre-oncall,2,2,0,0,,pending
+2026-10-27,T006,tech,1,data-engineer,3,3,0,0,,pending
+2026-10-27,T006,tech,1,oss-maintainer,2,2,0,0,,pending
+2026-10-27,T006,tech,1,platform-vendor,2,1,0,1,,pending
