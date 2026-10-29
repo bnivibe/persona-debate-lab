@@ -38,6 +38,7 @@ never delete rows.
 | `learning-scientist` | AI Learning Scientist | Designs AI tutors around retrieval practice and spaced repetition | Can the learner recall it without looking? | Counts recall as the only outcome that matters |
 | `agent-engineer` | AI Agent Engineer | Builds autonomous agents with long-term memory | Can an agent keep this current without a human? | Overtrusts unattended automation |
 | `indie-game-designer` | Indie Game Designer | Has shipped small games with one or two people; judges a game by what the player does in its first minute | What does the player do in the first minute, and why come back? | Treats every feature beyond the core loop as scope creep |
+| `course-creator` | Course Creator | Has built and run paid online courses and study groups for developers; sees the world through who signs up and who finishes | Who signs up, and who is still there in week four? | Treats every skill as something to package and sell |
 
 The moderator and the synthesis are not personas.
 
