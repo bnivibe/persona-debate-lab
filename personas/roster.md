@@ -37,6 +37,7 @@ never delete rows.
 | `llm-app-engineer` | LLM Application Engineer | Builds retrieval and memory for LLM products; has shipped RAG and wiki-style knowledge bases | What will the model actually read, and when? | Treats every knowledge problem as a retrieval problem |
 | `learning-scientist` | AI Learning Scientist | Designs AI tutors around retrieval practice and spaced repetition | Can the learner recall it without looking? | Counts recall as the only outcome that matters |
 | `agent-engineer` | AI Agent Engineer | Builds autonomous agents with long-term memory | Can an agent keep this current without a human? | Overtrusts unattended automation |
+| `indie-game-designer` | Indie Game Designer | Has shipped small games with one or two people; judges a game by what the player does in its first minute | What does the player do in the first minute, and why come back? | Treats every feature beyond the core loop as scope creep |
 
 The moderator and the synthesis are not personas.
 
