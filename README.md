@@ -50,16 +50,17 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 | persona | rounds | proposals | survival | fact errors | adopted | hit rate |
 |---|---|---|---|---|---|---|
 | `startup-cto` | 1 | 4 | 75% | 1 | 0 | n/a |
+| `sre-oncall` | 1 | 2 | 100% | 0 | 0 | n/a |
 | `solo-indie` | 4 | 11 | 55% | 2 | 0 | n/a |
-| `data-engineer` | 4 | 8 | 75% | 1 | 0 | n/a |
+| `data-engineer` | 5 | 11 | 82% | 1 | 0 | n/a |
 | `backend-junior` | 2 | 4 | 100% | 1 | 0 | n/a |
 | `tech-lead-mid` | 1 | 2 | 100% | 0 | 0 | n/a |
 | `consultant` | 1 | 2 | 50% | 1 | 0 | n/a |
-| `platform-vendor` | 1 | 2 | 0% | 0 | 0 | n/a |
+| `platform-vendor` | 2 | 4 | 25% | 1 | 0 | n/a |
 | `product-manager` | 1 | 4 | 75% | 1 | 0 | n/a |
 | `security-officer` | 1 | 2 | 100% | 0 | 0 | n/a |
 | `migration-veteran` | 3 | 7 | 86% | 0 | 0 | n/a |
-| `oss-maintainer` | 1 | 2 | 50% | 0 | 0 | n/a |
+| `oss-maintainer` | 2 | 4 | 75% | 0 | 0 | n/a |
 | `hiring-manager` | 7 | 18 | 67% | 0 | 0 | n/a |
 | `wh-settler` | 1 | 2 | 50% | 0 | 0 | n/a |
 | `product-designer` | 3 | 9 | 56% | 1 | 0 | n/a |
@@ -67,7 +68,7 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 | `learning-scientist` | 2 | 4 | 50% | 1 | 0 | n/a |
 | `agent-engineer` | 3 | 6 | 83% | 0 | 0 | n/a |
 
-Method: 1 rated round(s), 7 awaiting an outcome; average rating 2.0 of 5; ideas used 25%.
+Method: 1 rated round(s), 8 awaiting an outcome; average rating 2.0 of 5; ideas used 25%.
 <!-- scoreboard:end -->
 
 ## Privacy
