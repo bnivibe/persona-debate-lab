@@ -33,8 +33,11 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    read before preparing the context. Then run `python3 skill/bin/score.py
    --brief` and pick three to five personas whose jobs touch the topic. A meeting that looks for
    new ideas, or weighs ideas against each other, seats one persona whose job is making new
-   concepts and one who tracks current trends; the trend persona argues only from trend facts the
-   moderator checked that week and put in the context, each with its date and source. When ideas
+   concepts, one who tracks current trends, and one who builds what the ideas would need and asks
+   whether it can be made; the trend persona argues only from trend facts the moderator checked
+   that week and put in the context, each with its date and source. When the topic is finding new
+   candidates, the context carries raw material (the user's record, the trend facts), never a list
+   of candidates the moderator or a helper drew up beforehand: the candidates come from the room. When ideas
    are weighed on equal terms, no persona whose job ties it to one of them is cast, and neither is
    one who sat in an earlier meeting on one of them. Show the user the cast with one line of
    reasoning each and wait for a yes. Every round includes at least one persona who was not in the

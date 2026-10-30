@@ -2,6 +2,13 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-10-30 · Finding candidates is the meeting's work, and a builder sits in it
+Asked for new candidates to join two kept ones, the moderator had a research agent draft them before
+the meeting. The user stopped it: the candidates were to come out of the debate. The same day the
+user asked for a developer persona next to the creative, trend and judging seats, since nobody in
+the room would build the ideas. The context for a candidate search now carries only raw material,
+and idea meetings seat a persona who builds what the ideas need.
+
 ## 2026-10-30 · "Equal terms" meant new, not equal to each other
 Two ideas had lost a selection to a third, and the user asked to debate them again on equal terms.
 The moderator read that as the two being equal to each other, and put each one's earlier meeting
