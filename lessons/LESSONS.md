@@ -2,6 +2,14 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-10-30 · "Equal terms" meant new, not equal to each other
+Two ideas had lost a selection to a third, and the user asked to debate them again on equal terms.
+The moderator read that as the two being equal to each other, and put each one's earlier meeting
+into the context. The user meant that both should rejoin the other candidates as if the room had
+never seen them. A requeued idea now enters with the same description as every other candidate and
+none of its history. And when the user's words allow two readings, the moderator states its
+reading before preparing anything.
+
 ## 2026-10-30 · A cast of specialists, with one insider per idea, looked one-sided
 Asked to weigh two earlier ideas on equal terms, the moderator offered one insider per idea and two
 judges. The user found the cast all specialists, missing a creative mind and someone who knows the
