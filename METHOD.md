@@ -26,7 +26,11 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    venue (who hears the result, and how much time they have), the facts with their sources, and
    the constraints. Ask the user for whatever is missing. The topic goes in as the user said it,
    quoted. Earlier rounds go in as a short neutral list (what stood, what died and why, what was
-   left open), and anything from them may be reopened. Then run `python3 skill/bin/score.py
+   left open), and anything from them may be reopened. An idea the user puts back among other
+   candidates after it lost a selection goes in as new: the same short description as every other
+   candidate, and none of its earlier rounds, so the cast meets it for the first time. When the
+   user's words for the topic or its scope can be read two ways, say in one line how they were
+   read before preparing the context. Then run `python3 skill/bin/score.py
    --brief` and pick three to five personas whose jobs touch the topic. A meeting that looks for
    new ideas, or weighs ideas against each other, seats one persona whose job is making new
    concepts and one who tracks current trends; the trend persona argues only from trend facts the
