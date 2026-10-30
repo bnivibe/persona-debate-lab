@@ -51,25 +51,28 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 |---|---|---|---|---|---|---|
 | `startup-cto` | 1 | 4 | 75% | 1 | 0 | n/a |
 | `sre-oncall` | 1 | 2 | 100% | 0 | 0 | n/a |
-| `solo-indie` | 5 | 14 | 57% | 3 | 0 | n/a |
+| `solo-indie` | 5 | 14 | 57% | 3 | 1 | 0% |
 | `data-engineer` | 5 | 11 | 82% | 1 | 0 | n/a |
 | `backend-junior` | 2 | 4 | 100% | 1 | 0 | n/a |
 | `tech-lead-mid` | 1 | 2 | 100% | 0 | 0 | n/a |
+| `cost-controller` | 1 | 2 | 0% | 0 | 0 | n/a |
 | `consultant` | 1 | 2 | 50% | 1 | 0 | n/a |
 | `platform-vendor` | 2 | 4 | 25% | 1 | 0 | n/a |
-| `product-manager` | 1 | 4 | 75% | 1 | 0 | n/a |
+| `product-manager` | 2 | 7 | 57% | 1 | 0 | n/a |
 | `security-officer` | 1 | 2 | 100% | 0 | 0 | n/a |
 | `migration-veteran` | 3 | 7 | 86% | 0 | 0 | n/a |
 | `oss-maintainer` | 2 | 4 | 75% | 0 | 0 | n/a |
 | `hiring-manager` | 7 | 18 | 67% | 0 | 0 | n/a |
 | `wh-settler` | 1 | 2 | 50% | 0 | 0 | n/a |
-| `product-designer` | 4 | 11 | 55% | 1 | 0 | n/a |
+| `paperwork-agent` | 1 | 2 | 50% | 0 | 0 | n/a |
+| `product-designer` | 4 | 11 | 55% | 1 | 1 | 100% |
 | `llm-app-engineer` | 2 | 4 | 75% | 0 | 0 | n/a |
-| `learning-scientist` | 3 | 6 | 50% | 1 | 0 | n/a |
+| `learning-scientist` | 3 | 6 | 50% | 1 | 1 | 100% |
 | `agent-engineer` | 3 | 6 | 83% | 0 | 0 | n/a |
-| `indie-game-designer` | 1 | 3 | 100% | 0 | 0 | n/a |
+| `indie-game-designer` | 1 | 3 | 100% | 0 | 2 | 100% |
+| `course-creator` | 1 | 2 | 50% | 0 | 0 | n/a |
 
-Method: 1 rated round(s), 9 awaiting an outcome; average rating 2.0 of 5; ideas used 25%.
+Method: 2 rated round(s), 9 awaiting an outcome; average rating 3.0 of 5; ideas used 39%.
 <!-- scoreboard:end -->
 
 ## Privacy

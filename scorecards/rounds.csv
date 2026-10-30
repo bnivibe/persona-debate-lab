@@ -41,7 +41,11 @@ date,thread,category,round,persona,proposals,survived,attacked,fact_errors,adopt
 2026-10-27,T006,tech,1,data-engineer,3,3,0,0,,pending
 2026-10-27,T006,tech,1,oss-maintainer,2,2,0,0,,pending
 2026-10-27,T006,tech,1,platform-vendor,2,1,0,1,,pending
-2026-10-28,T007,tech,1,product-designer,2,1,1,0,,pending
-2026-10-28,T007,tech,1,solo-indie,3,2,1,1,,pending
-2026-10-28,T007,tech,1,learning-scientist,2,1,0,0,,pending
-2026-10-28,T007,tech,1,indie-game-designer,3,3,0,0,,pending
+2026-10-28,T007,tech,1,product-designer,2,1,1,0,1,hit
+2026-10-28,T007,tech,1,solo-indie,3,2,1,1,1,mixed
+2026-10-28,T007,tech,1,learning-scientist,2,1,0,0,1,hit
+2026-10-28,T007,tech,1,indie-game-designer,3,3,0,0,2,hit
+2026-10-28,T008,career,1,course-creator,2,1,0,0,,pending
+2026-10-28,T008,career,1,product-manager,3,1,0,0,,pending
+2026-10-28,T008,career,1,paperwork-agent,2,1,0,0,,pending
+2026-10-28,T008,career,1,cost-controller,2,0,0,0,,pending
