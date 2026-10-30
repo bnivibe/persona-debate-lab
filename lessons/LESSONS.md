@@ -2,6 +2,14 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-10-30 · A cast of specialists, with one insider per idea, looked one-sided
+Asked to weigh two earlier ideas on equal terms, the moderator offered one insider per idea and two
+judges. The user found the cast all specialists, missing a creative mind and someone who knows the
+current trends, and then found the insiders partisan. Idea meetings now seat a concept maker and a
+trend scout, the scout fed with trend facts checked that week, and equal-terms comparisons cast no
+one tied to either side. The same day the user asked that every remark on how meetings run be
+recorded and turned into a rule before the next meeting; that is now step 11.
+
 ## 2026-10-26 · The first rated round scored 2 of 5
 The user used two of eight ideas and said the cast never grasped the setting: what kind of room it
 was and who would be answering. That round ran before the context checklist existed. The checklist

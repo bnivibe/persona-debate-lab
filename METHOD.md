@@ -27,9 +27,14 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    the constraints. Ask the user for whatever is missing. The topic goes in as the user said it,
    quoted. Earlier rounds go in as a short neutral list (what stood, what died and why, what was
    left open), and anything from them may be reopened. Then run `python3 skill/bin/score.py
-   --brief` and pick three to five personas whose jobs touch the topic. Show the user the cast
-   with one line of reasoning each and wait for a yes. Every round includes at least one persona
-   who was not in the previous round.
+   --brief` and pick three to five personas whose jobs touch the topic. A meeting that looks for
+   new ideas, or weighs ideas against each other, seats one persona whose job is making new
+   concepts and one who tracks current trends; the trend persona argues only from trend facts the
+   moderator checked that week and put in the context, each with its date and source. When ideas
+   are weighed on equal terms, no persona whose job ties it to one of them is cast, and neither is
+   one who sat in an earlier meeting on one of them. Show the user the cast with one line of
+   reasoning each and wait for a yes. Every round includes at least one persona who was not in the
+   previous round.
 3. **Seat the room.** Start one persona alone with the opening brief from
    `skill/templates/persona-brief.md`. If it returns a status string ("done", "idle") instead of
    content, ask the same agent once to re-output its answer; if that also fails, stop and tell the
@@ -89,6 +94,10 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
     on a scale of 1 to 5. Fill `adopted` and `outcome` in `scorecards/rounds.csv`, fill
     `ideas_used` and `rating` in `scorecards/outcomes.csv`, run `score.py --write`, and add a
     lesson if the result generalizes.
+11. **Feedback on the method.** Whenever the user remarks on how a meeting is run (the cast, the
+    questions, the pace, the format, the report), record the remark in the same turn, apply it to
+    the running meeting where it can be, and before the next meeting turn it into a change to this
+    file, the roster or the skill, with a lesson saying why. Tell the user what changed.
 
 ## Scorecard fields
 
