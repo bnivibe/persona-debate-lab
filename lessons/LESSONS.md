@@ -2,6 +2,14 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-10-30 · Rotate the cast instead of excluding it
+To keep the same ideas from coming back, the moderator left out every persona that had sat in the
+meeting where the pooled ideas came from. The user agreed with the aim but not the means: leaving
+people out for good loses useful voices, and a cast should change on a schedule instead. Idea meetings
+now fill five seats by role and rotate them (two meetings in a row at most, at least two new seats,
+adopted ideas keep their persona first), while the pool's missing author names keep anyone from
+defending an old idea.
+
 ## 2026-10-30 · Ideas not adopted wait in a pool, and reports start in plain words
 The user defined what an idea meeting is for: the debate produces many ideas into a candidate pool,
 the good ones are adopted, and the rest stay in the pool to compete in the next debate as one idea
