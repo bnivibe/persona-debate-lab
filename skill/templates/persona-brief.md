@@ -1,6 +1,6 @@
 # Persona brief
 
-The three messages a persona agent receives in a meeting (`METHOD.md`, steps 3, 4 and 7). Fill
+The messages a persona agent receives in a meeting (`METHOD.md`, steps 3, 4 and 7). Fill
 the angle brackets; keep the rest as written, so every meeting gives its personas the same rules.
 
 ## Opening brief (step 3)
@@ -26,6 +26,34 @@ Now give your opening statement: where you stand, in at most 60 words, and at mo
 each at most 250 characters. Reply with plain text only.
 ```
 
+In a meeting that looks for ideas, the last paragraph of the opening brief is replaced with this:
+
+```text
+WHAT THE USER CALLS A GOOD IDEA:
+<the user's words, quoted>
+Turning something the user already does into an automation or a skill is not an idea here.
+
+Before you speak, prepare on your own: analyze the material in the context; benchmark what
+already exists in this space (products, projects, write-ups), with a source for each, looking it
+up where you can; draft at least five ideas; keep the two least obvious that survive your own
+benchmark. Facts from your benchmarking count only with their source.
+
+Then give your opening statement: where you stand, in at most 60 words, and your two ideas, each
+at most 250 characters, each followed by one benchmark line of at most 150 characters (the
+closest thing that exists, and how this idea differs). Do not show your drafts. Reply with plain
+text only.
+```
+
+## Deepening turn (step 4, first turn of a meeting that looks for ideas)
+
+```text
+TURN 1, the deepening turn. Nothing is weeded out yet.
+Pick one idea that is not yours, preferably one nobody has deepened, and reply with
+deepen <label>, at most 120 words: a concrete picture of the user using it, how it differs from
+its benchmark, and the part that is not obvious and makes it worth building. No objections or
+withdrawals in this turn.
+```
+
 ## Turn relay (step 4)
 
 ```text
@@ -35,7 +63,7 @@ MODERATOR fact flag: <one line, citing the fact>
 THE USER answered <persona>'s question "<question>": "<answer, verbatim>"
 
 Reply with exactly one move, at most 80 words, starting with its name:
-object <label> | support <label> | refine <label> | answer <persona> | propose |
+object <label> | support <label> | refine <label> | deepen <label> | answer <persona> | propose |
 ask <persona> | ask-user | withdraw <label> | pass
 Restating your position is a pass. Do not defend your own idea without something new.
 ```

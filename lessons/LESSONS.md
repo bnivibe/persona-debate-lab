@@ -2,6 +2,20 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-10-31 · An idea meeting thinks before it weeds
+The user rated an idea meeting 2 of 5: the ideas felt shallow and not thought through. The record
+showed why. Each persona put its first two thoughts on the table in its opening, and six turns
+only weeded them (seven of ten fell to one-line answers from the user) without making any of them
+deeper. The material leaned on the user's own tools, so every idea left was a fix or an
+automation of something the user already does, which the user said is skill work, not an idea.
+And one persona withdrew an idea on its own guess at what the user's factual answer meant; the
+user revived and adopted it. The user's bar for a good idea is one drawn out by thinking deeply,
+benchmarking what exists, analyzing the material given and deliberating. Idea meetings now carry
+that bar in the context, prepare each opening with a private benchmark and at least five drafts,
+give the first turn to deepening other personas' ideas before any weeding, flag automations of
+existing work, ask the user about an idea's value and not only a fact, and list ideas withdrawn
+on the user's answers so the user can revive them.
+
 ## 2026-10-30 · Judge ideas on quality, and end every meeting with a report
 In an idea meeting the personas filtered ideas by the user's time ("one day a week", "ships in one
 session") although the user had set no such limit. The user said build time does not matter and the

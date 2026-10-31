@@ -27,6 +27,9 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    the constraints. Ask the user for whatever is missing. In a meeting that looks for or weighs
    ideas, the constraints leave out build time and schedule unless the user sets them: ideas are
    judged on their quality, and a persona's guess at the user's time is not a constraint. The
+   context of an idea meeting quotes the user's own words for what makes an idea good, and says
+   what is not an idea: turning something the user already does into an automation or a skill is
+   skill work, which the user does often anyway, and it goes to the user's skill upkeep instead. The
    topic goes in as the user said it,
    quoted. Earlier rounds go in as a short neutral list (what stood, what died and why, what was
    left open), and anything from them may be reopened. An idea the user puts back among other
@@ -54,7 +57,13 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    `skill/templates/persona-brief.md`. If it returns a status string ("done", "idle") instead of
    content, ask the same agent once to re-output its answer; if that also fails, stop and tell the
    user. Then start the rest in parallel. Each opening statement says where the persona stands, in
-   at most 60 words, and puts at most two ideas on the table, each at most 250 characters. The moderator labels every
+   at most 60 words, and puts at most two ideas on the table, each at most 250 characters. In a
+   meeting that looks for ideas, each persona prepares before it speaks: it analyzes the material
+   in the context, benchmarks what already exists in the space (products, projects, write-ups,
+   each with a source, looked up where it can), drafts at least five ideas on its own, and brings
+   the two least obvious that survive its own benchmark, each with one benchmark line of at most
+   150 characters: the closest thing that exists, and how this idea differs. The drafts stay
+   private; only the opening is shown. The moderator labels every
    idea when it is first stated (`DE-1`, `DE-2`, ... by persona) and keeps each agent's id so the
    same agent hears every later turn.
 4. **Turns.** In a turn the moderator sends every persona, in parallel, everything said since its
@@ -62,6 +71,7 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    exactly one move of at most 80 words:
    - `object` to a named idea, naming the weak link;
    - `support` or `refine` a named idea, saying what it adds;
+   - `deepen` a named idea that is not the persona's own, in the deepening turn (below);
    - `answer` an objection or a question put to it, with something new (a fact, a narrower
      version); restating a position is a `pass`;
    - `propose` a new idea (at most three per persona per meeting, counting the opening);
@@ -72,15 +82,26 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    A `refine` changes the named idea in place: it stays its author's idea and does not count toward
    the refiner's proposals. A turn ends when every persona has answered.
    A persona's known bias, from the roster, may be used as an argument.
+   In a meeting that looks for ideas, the first turn is a deepening turn, before anything is
+   weeded out: every persona answers with `deepen`, in at most 120 words, on one idea that is not
+   its own and that nobody has deepened yet if one is left: a concrete picture of the user using
+   it, how it differs from its benchmark, and the part that is not obvious and makes it worth
+   building. No objections or withdrawals in that turn. Ideas are judged from the second turn on.
 5. **Check facts in the room.** Before relaying a turn, the moderator checks its factual claims
    against the context and the user's answers. A misread is flagged to everyone in the next relay,
-   in one line that cites the fact, and is counted against its persona.
+   in one line that cites the fact, and is counted against its persona. Facts a persona found in
+   its own benchmarking count only with their source. In a meeting that looks for ideas the
+   moderator also flags an idea that only automates what the user already does; its author makes
+   it new or withdraws it.
 6. **Ask the user.** The meeting pauses when a turn contains an `ask-user` move. If the context
    already answers it, the moderator says so to the room and does not ask. Otherwise it puts the
    remaining questions to the user, at most three at once, in the user's language and in plain
    words, with no internal labels (no idea labels, fact numbers or persona ids): who is asking, the
    question, and why it matters to the decision. The user's answer goes to every persona verbatim
    and into the context as a fact from the user. "I don't know" and "you decide" are answers too.
+   A question whose answer may decide an idea asks about the idea itself as well as the fact (would
+   the user use it, does it interest the user): a factual answer alone is not the user's verdict on
+   an idea, and a persona's own "if not, I withdraw" is its guess, not the user's.
    The user may also speak at any pause, and that remark is relayed the same way. Between pauses
    the moderator shows the user each turn as a short transcript (one line per speaker, passes
    left out) and keeps going.
@@ -99,7 +120,8 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    - Standing ideas, split into those that held up under objection and those nobody challenged.
      An unchallenged idea has not been tested.
    - Withdrawn and dropped ideas: by whom, and why. An idea is dropped when an objection to it was
-     still unanswered at the close.
+     still unanswered at the close. Ideas withdrawn because of the user's answers are listed apart,
+     so the user can revive them; a revived idea is a standing idea again.
    - The user's answers, and the questions still open for the user.
    - Misreads flagged in step 5.
    - A missing perspective (a cast suggestion for next round), and up to three next topics.
