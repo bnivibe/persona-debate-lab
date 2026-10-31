@@ -51,7 +51,7 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 <!-- scoreboard:start -->
 | persona | rounds | proposals | survival | fact errors | adopted | hit rate |
 |---|---|---|---|---|---|---|
-| `startup-cto` | 3 | 8 | 62% | 1 | 0 | 0% |
+| `startup-cto` | 4 | 10 | 60% | 2 | 0 | 0% |
 | `sre-oncall` | 1 | 2 | 100% | 0 | 0 | n/a |
 | `solo-indie` | 7 | 18 | 56% | 3 | 2 | 50% |
 | `data-engineer` | 5 | 11 | 82% | 1 | 0 | n/a |
@@ -62,12 +62,12 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 | `platform-vendor` | 2 | 4 | 25% | 1 | 0 | n/a |
 | `product-manager` | 2 | 7 | 57% | 1 | 0 | n/a |
 | `security-officer` | 2 | 4 | 100% | 0 | 0 | n/a |
-| `migration-veteran` | 4 | 9 | 67% | 0 | 0 | 0% |
+| `migration-veteran` | 5 | 11 | 55% | 0 | 0 | 0% |
 | `oss-maintainer` | 2 | 4 | 75% | 0 | 0 | n/a |
 | `hiring-manager` | 7 | 18 | 67% | 0 | 0 | n/a |
-| `wh-settler` | 1 | 2 | 50% | 0 | 0 | n/a |
+| `wh-settler` | 2 | 4 | 25% | 0 | 0 | n/a |
 | `paperwork-agent` | 1 | 2 | 50% | 0 | 0 | n/a |
-| `product-designer` | 5 | 13 | 46% | 1 | 1 | 50% |
+| `product-designer` | 6 | 15 | 40% | 1 | 1 | 50% |
 | `llm-app-engineer` | 3 | 6 | 67% | 0 | 0 | 0% |
 | `learning-scientist` | 4 | 8 | 62% | 1 | 1 | 100% |
 | `agent-engineer` | 4 | 8 | 75% | 1 | 0 | 0% |
@@ -76,8 +76,9 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 | `creative-director` | 3 | 6 | 50% | 0 | 1 | 50% |
 | `trend-scout` | 3 | 6 | 33% | 0 | 2 | 100% |
 | `devrel` | 1 | 2 | 50% | 0 | 0 | 0% |
+| `culture-scout` | 1 | 2 | 50% | 1 | 0 | n/a |
 
-Method: 5 rated round(s), 10 awaiting an outcome; average rating 3.2 of 5; ideas used 23%.
+Method: 5 rated round(s), 11 awaiting an outcome; average rating 3.2 of 5; ideas used 23%.
 <!-- scoreboard:end -->
 
 ## Privacy
