@@ -2,6 +2,14 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-10-31 · Deal the deepening turn so every idea is deepened once
+The first idea meeting with a deepening turn let each persona pick one idea that was not its own.
+They chose in parallel and could not see each other's picks, so four of the five deepenings went to
+two ideas, and twelve ideas, the whole candidate pool among them, were judged without being
+deepened. The user rated the meeting 4 of 5 for better candidates and agreed to fix this. The
+moderator now deals every idea on the table, pooled ones included, round the personas by a fixed
+rule, so each is deepened exactly once and never by its author.
+
 ## 2026-10-31 · An idea meeting thinks before it weeds
 The user rated an idea meeting 2 of 5: the ideas felt shallow and not thought through. The record
 showed why. Each persona put its first two thoughts on the table in its opening, and six turns
