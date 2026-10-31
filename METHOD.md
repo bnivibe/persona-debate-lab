@@ -29,7 +29,12 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    judged on their quality, and a persona's guess at the user's time is not a constraint. The
    context of an idea meeting quotes the user's own words for what makes an idea good, and says
    what is not an idea: turning something the user already does into an automation or a skill is
-   skill work, which the user does often anyway, and it goes to the user's skill upkeep instead. The
+   skill work, which the user does often anyway, and it goes to the user's skill upkeep instead. In
+   a meeting that looks for ideas, the moderator does not gather the material: the context gives
+   the goal, the decision date, the audience and venue, the constraints, the user's bar for a good
+   idea, the candidate pool, what not to put back, and where the user's own material lives with what
+   is off limits, and nothing else; the user's earlier answers and adopted ideas go in only as what
+   not to put back, never as a starting point. Each persona finds its own facts (step 3). The
    topic goes in as the user said it,
    quoted. Earlier rounds go in as a short neutral list (what stood, what died and why, what was
    left open), and anything from them may be reopened. An idea the user puts back among other
@@ -40,16 +45,16 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    --brief` and pick three to five personas whose jobs touch the topic. A meeting that looks for
    new ideas, or weighs ideas against each other, seats one persona whose job is making new
    concepts, one who tracks current trends, and one who builds what the ideas would need and asks
-   whether it can be made; the trend persona argues only from trend facts the moderator checked
-   that week and put in the context, each with its date and source. When the topic is finding new
-   candidates, the context carries raw material (the user's record, the trend facts), never a list
-   of candidates the moderator or a helper drew up beforehand: the candidates come from the room. When ideas
+   whether it can be made; the trend persona finds its own dated trend facts, each with its source.
+   When the topic is finding new candidates, the context never carries a list of candidates the
+   moderator or a helper drew up beforehand: the candidates come from the room. When ideas
    are weighed on equal terms, no persona whose job ties it to one of them is cast; pooled ideas carry
    no author, so a persona that proposed one may sit again. An idea meeting fills five seats by role
    (concept, trend, builder, critic, open), each from its seat list in `personas/roster.md`, and
    rotates them: a persona sits at most two idea meetings in a row and then rests one; at least two
-   seats change from the last idea meeting; a persona whose idea was adopted last time stays first
-   (within that limit), and one with no adopted idea, or with a misread, is changed first. Every seat
+   seats change from the last idea meeting; a persona whose idea was adopted sits out the next idea
+   meeting (a meeting stopped before its close does not count), so the room does not circle the
+   last adoption; one with no adopted idea, or with a misread, is changed first. Every seat
    list keeps at least two personas, so a resting persona always has a stand-in. Show the user the cast with one line of
    reasoning each and wait for a yes. Every round includes at least one persona who was not in the
    previous round.
@@ -58,8 +63,9 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    content, ask the same agent once to re-output its answer; if that also fails, stop and tell the
    user. Then start the rest in parallel. Each opening statement says where the persona stands, in
    at most 60 words, and puts at most two ideas on the table, each at most 250 characters. In a
-   meeting that looks for ideas, each persona prepares before it speaks: it analyzes the material
-   in the context, benchmarks what already exists in the space (products, projects, write-ups,
+   meeting that looks for ideas, each persona prepares before it speaks: it reads and analyzes the
+   user's own material where the context points (never what is off limits), browses the web for
+   what people need and do now, in and beyond software, benchmarks what already exists in the space (products, projects, write-ups,
    each with a source, looked up where it can), drafts at least five ideas on its own, and brings
    the two least obvious that survive its own benchmark, each with one benchmark line of at most
    150 characters: the closest thing that exists, and how this idea differs. The drafts stay

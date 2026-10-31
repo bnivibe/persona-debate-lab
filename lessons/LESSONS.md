@@ -2,6 +2,15 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-10-31 · Personas bring their own material, and adopted authors sit out
+Three idea meetings in a row produced only software ideas. The user stopped the fourth and asked
+why. The moderator had filled the context: 19 of its 26 facts were about software, all five trend
+facts came from developer surveys, and the user's earlier answers and adopted ideas were fed back
+as facts, so a persona whose idea had been adopted opened by bending that idea. The user decided
+that the moderator stops gathering material: each persona reads the user's own material, browses
+the web and benchmarks on its own, keeping a source for every fact. And a persona whose idea was
+adopted sits out the next idea meeting, so the room does not circle the last adoption.
+
 ## 2026-10-31 · Deal the deepening turn so every idea is deepened once
 The first idea meeting with a deepening turn let each persona pick one idea that was not its own.
 They chose in parallel and could not see each other's picks, so four of the five deepenings went to
