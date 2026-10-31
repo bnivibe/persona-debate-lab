@@ -49,8 +49,8 @@ date,thread,category,round,persona,proposals,survived,attacked,fact_errors,adopt
 2026-10-28,T008,career,1,product-manager,3,1,0,0,,pending
 2026-10-28,T008,career,1,paperwork-agent,2,1,0,0,,pending
 2026-10-28,T008,career,1,cost-controller,2,0,0,0,,pending
-2026-10-30,T009,tech,1,creative-director,2,1,0,0,,pending
-2026-10-30,T009,tech,1,trend-scout,2,1,0,0,,pending
-2026-10-30,T009,tech,1,agent-engineer,2,1,0,1,,pending
-2026-10-30,T009,tech,1,consultant,2,1,0,0,,pending
-2026-10-30,T009,tech,1,startup-cto,2,1,0,0,,pending
+2026-10-30,T009,tech,1,creative-director,2,1,0,0,0,miss
+2026-10-30,T009,tech,1,trend-scout,2,1,0,0,1,hit
+2026-10-30,T009,tech,1,agent-engineer,2,1,0,1,0,mixed
+2026-10-30,T009,tech,1,consultant,2,1,0,0,0,miss
+2026-10-30,T009,tech,1,startup-cto,2,1,0,0,0,mixed
