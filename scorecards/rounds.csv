@@ -59,3 +59,8 @@ date,thread,category,round,persona,proposals,survived,attacked,fact_errors,adopt
 2026-10-30,T010,tech,1,startup-cto,2,1,0,0,0,miss
 2026-10-30,T010,tech,1,migration-veteran,2,0,1,0,0,miss
 2026-10-30,T010,tech,1,llm-app-engineer,2,1,1,0,0,miss
+2026-10-31,T011,tech,1,creative-director,2,1,1,0,1,hit
+2026-10-31,T011,tech,1,devrel,2,1,0,0,0,mixed
+2026-10-31,T011,tech,1,solo-indie,2,1,0,0,1,hit
+2026-10-31,T011,tech,1,consultant,2,2,0,0,0,mixed
+2026-10-31,T011,tech,1,indie-game-designer,2,0,0,0,0,mixed
