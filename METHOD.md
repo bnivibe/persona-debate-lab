@@ -32,9 +32,12 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    skill work, which the user does often anyway, and it goes to the user's skill upkeep instead. In
    a meeting that looks for ideas, the moderator does not gather the material: the context gives
    the goal, the decision date, the audience and venue, the constraints, the user's bar for a good
-   idea, the candidate pool, what not to put back, and where the user's own material lives with what
-   is off limits, and nothing else; the user's earlier answers and adopted ideas go in only as what
-   not to put back, never as a starting point. Each persona finds its own facts (step 3). The
+   idea, what not to put back, and where the user's own material lives with what is off limits,
+   and nothing else; the user's earlier answers and adopted ideas go in only as what not to put
+   back, never as a starting point. Each persona finds its own facts (step 3). The candidate pool
+   stays out of the opening brief, so the personas' own research is not steered by it: it is shown
+   to everyone with the first relay after the openings and then enters the deepening deal and the
+   judging on equal terms. The
    topic goes in as the user said it,
    quoted. Earlier rounds go in as a short neutral list (what stood, what died and why, what was
    left open), and anything from them may be reopened. An idea the user puts back among other
@@ -147,7 +150,8 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
     lesson if the result generalizes. In a meeting that looks for ideas, the user adopts the ideas
     worth building from the standing ones. Every standing idea not adopted goes into the user's
     candidate pool, and the next meeting that looks for ideas takes the whole pool in as candidates,
-    on equal terms with the room's new ideas and with none of their history (step 2).
+    on equal terms with the room's new ideas and with none of their history, shown after the
+    openings (step 2).
 11. **Feedback on the method.** Whenever the user remarks on how a meeting is run (the cast, the
     questions, the pace, the format, the report), record the remark in the same turn, apply it to
     the running meeting where it can be, and before the next meeting turn it into a change to this
