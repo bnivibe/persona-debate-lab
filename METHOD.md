@@ -38,8 +38,13 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    that week and put in the context, each with its date and source. When the topic is finding new
    candidates, the context carries raw material (the user's record, the trend facts), never a list
    of candidates the moderator or a helper drew up beforehand: the candidates come from the room. When ideas
-   are weighed on equal terms, no persona whose job ties it to one of them is cast, and neither is
-   one who sat in an earlier meeting on one of them. Show the user the cast with one line of
+   are weighed on equal terms, no persona whose job ties it to one of them is cast; pooled ideas carry
+   no author, so a persona that proposed one may sit again. An idea meeting fills five seats by role
+   (concept, trend, builder, critic, open), each from its seat list in `personas/roster.md`, and
+   rotates them: a persona sits at most two idea meetings in a row and then rests one; at least two
+   seats change from the last idea meeting; a persona whose idea was adopted last time stays first
+   (within that limit), and one with no adopted idea, or with a misread, is changed first. Every seat
+   list keeps at least two personas, so a resting persona always has a stand-in. Show the user the cast with one line of
    reasoning each and wait for a yes. Every round includes at least one persona who was not in the
    previous round.
 3. **Seat the room.** Start one persona alone with the opening brief from
