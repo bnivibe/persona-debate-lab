@@ -54,3 +54,8 @@ date,thread,category,round,persona,proposals,survived,attacked,fact_errors,adopt
 2026-10-30,T009,tech,1,agent-engineer,2,1,0,1,0,mixed
 2026-10-30,T009,tech,1,consultant,2,1,0,0,0,miss
 2026-10-30,T009,tech,1,startup-cto,2,1,0,0,0,mixed
+2026-10-30,T010,tech,1,product-designer,2,0,0,0,,pending
+2026-10-30,T010,tech,1,trend-scout,2,0,0,0,,pending
+2026-10-30,T010,tech,1,startup-cto,2,1,0,0,,pending
+2026-10-30,T010,tech,1,migration-veteran,2,0,1,0,,pending
+2026-10-30,T010,tech,1,llm-app-engineer,2,1,1,0,,pending
