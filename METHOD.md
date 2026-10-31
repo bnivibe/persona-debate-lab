@@ -24,7 +24,10 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
 2. **Check context, then cast.** The thread context must state five things before any persona
    runs: the goal (what decision or event this prepares), the decision date, the audience and
    venue (who hears the result, and how much time they have), the facts with their sources, and
-   the constraints. Ask the user for whatever is missing. The topic goes in as the user said it,
+   the constraints. Ask the user for whatever is missing. In a meeting that looks for or weighs
+   ideas, the constraints leave out build time and schedule unless the user sets them: ideas are
+   judged on their quality, and a persona's guess at the user's time is not a constraint. The
+   topic goes in as the user said it,
    quoted. Earlier rounds go in as a short neutral list (what stood, what died and why, what was
    left open), and anything from them may be reopened. An idea the user puts back among other
    candidates after it lost a selection goes in as new: the same short description as every other
@@ -85,7 +88,9 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    bring no new idea, objection or question; or, after six turns, the user chooses not to continue
    (the moderator asks). Then every persona gives a closing statement in parallel, two lines: what it
    now supports, and what it still doubts.
-8. **Minutes.** The report to the user opens with each standing idea in two or three plain
+8. **Minutes.** Every meeting ends with a report the user can keep, made without being asked: a
+   document saved where the user's records live, with a page for reading it, and the chat carries
+   a short summary and the link. The report opens with each standing idea in two or three plain
    sentences, in the user's language and without the room's labels: what it does, an example from
    something the user has already done, and what changes for the user. Then the moderator writes
    only what was said in the room:

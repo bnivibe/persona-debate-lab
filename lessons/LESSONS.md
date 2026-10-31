@@ -2,6 +2,14 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-10-30 · Judge ideas on quality, and end every meeting with a report
+In an idea meeting the personas filtered ideas by the user's time ("one day a week", "ships in one
+session") although the user had set no such limit. The user said build time does not matter and the
+quality of the idea matters most. At the same meeting's sixth turn the user asked for a report of the
+debate, and for one every time a debate ends. Idea meetings now leave build time and schedule out of
+the constraints unless the user sets them, and every meeting closes with a kept report document and
+a reading page, unasked.
+
 ## 2026-10-30 · Rotate the cast instead of excluding it
 To keep the same ideas from coming back, the moderator left out every persona that had sat in the
 meeting where the pooled ideas came from. The user agreed with the aim but not the means: leaving
