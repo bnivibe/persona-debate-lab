@@ -51,12 +51,12 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 |---|---|---|---|---|---|---|
 | `startup-cto` | 3 | 8 | 62% | 1 | 0 | 0% |
 | `sre-oncall` | 1 | 2 | 100% | 0 | 0 | n/a |
-| `solo-indie` | 5 | 14 | 57% | 3 | 1 | 0% |
+| `solo-indie` | 6 | 16 | 56% | 3 | 2 | 50% |
 | `data-engineer` | 5 | 11 | 82% | 1 | 0 | n/a |
 | `backend-junior` | 2 | 4 | 100% | 1 | 0 | n/a |
 | `tech-lead-mid` | 1 | 2 | 100% | 0 | 0 | n/a |
 | `cost-controller` | 1 | 2 | 0% | 0 | 0 | n/a |
-| `consultant` | 2 | 4 | 50% | 1 | 0 | 0% |
+| `consultant` | 3 | 6 | 67% | 1 | 0 | 0% |
 | `platform-vendor` | 2 | 4 | 25% | 1 | 0 | n/a |
 | `product-manager` | 2 | 7 | 57% | 1 | 0 | n/a |
 | `security-officer` | 1 | 2 | 100% | 0 | 0 | n/a |
@@ -69,12 +69,13 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 | `llm-app-engineer` | 3 | 6 | 67% | 0 | 0 | 0% |
 | `learning-scientist` | 3 | 6 | 50% | 1 | 1 | 100% |
 | `agent-engineer` | 4 | 8 | 75% | 1 | 0 | 0% |
-| `indie-game-designer` | 1 | 3 | 100% | 0 | 2 | 100% |
+| `indie-game-designer` | 2 | 5 | 60% | 0 | 2 | 50% |
 | `course-creator` | 1 | 2 | 50% | 0 | 0 | n/a |
-| `creative-director` | 1 | 2 | 50% | 0 | 0 | 0% |
+| `creative-director` | 2 | 4 | 50% | 0 | 1 | 50% |
 | `trend-scout` | 2 | 4 | 25% | 0 | 2 | 100% |
+| `devrel` | 1 | 2 | 50% | 0 | 0 | 0% |
 
-Method: 4 rated round(s), 9 awaiting an outcome; average rating 3.0 of 5; ideas used 24%.
+Method: 5 rated round(s), 9 awaiting an outcome; average rating 3.2 of 5; ideas used 23%.
 <!-- scoreboard:end -->
 
 ## Privacy
