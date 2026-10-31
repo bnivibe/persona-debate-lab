@@ -2,6 +2,13 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-10-30 · Ideas not adopted wait in a pool, and reports start in plain words
+The user defined what an idea meeting is for: the debate produces many ideas into a candidate pool,
+the good ones are adopted, and the rest stay in the pool to compete in the next debate as one idea
+among others. The same day the user could not tell what the adopted idea was from a report written
+in the room's terms (a "line", a "state file", a "first slice"). Outcomes now feed the pool, and
+every report to the user opens with each idea in plain words before any of the room's labels.
+
 ## 2026-10-30 · Finding candidates is the meeting's work, and a builder sits in it
 Asked for new candidates to join two kept ones, the moderator had a research agent draft them before
 the meeting. The user stopped it: the candidates were to come out of the debate. The same day the
