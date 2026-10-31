@@ -60,21 +60,21 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 | `platform-vendor` | 2 | 4 | 25% | 1 | 0 | n/a |
 | `product-manager` | 2 | 7 | 57% | 1 | 0 | n/a |
 | `security-officer` | 1 | 2 | 100% | 0 | 0 | n/a |
-| `migration-veteran` | 4 | 9 | 67% | 0 | 0 | n/a |
+| `migration-veteran` | 4 | 9 | 67% | 0 | 0 | 0% |
 | `oss-maintainer` | 2 | 4 | 75% | 0 | 0 | n/a |
 | `hiring-manager` | 7 | 18 | 67% | 0 | 0 | n/a |
 | `wh-settler` | 1 | 2 | 50% | 0 | 0 | n/a |
 | `paperwork-agent` | 1 | 2 | 50% | 0 | 0 | n/a |
-| `product-designer` | 5 | 13 | 46% | 1 | 1 | 100% |
-| `llm-app-engineer` | 3 | 6 | 67% | 0 | 0 | n/a |
+| `product-designer` | 5 | 13 | 46% | 1 | 1 | 50% |
+| `llm-app-engineer` | 3 | 6 | 67% | 0 | 0 | 0% |
 | `learning-scientist` | 3 | 6 | 50% | 1 | 1 | 100% |
 | `agent-engineer` | 4 | 8 | 75% | 1 | 0 | 0% |
 | `indie-game-designer` | 1 | 3 | 100% | 0 | 2 | 100% |
 | `course-creator` | 1 | 2 | 50% | 0 | 0 | n/a |
 | `creative-director` | 1 | 2 | 50% | 0 | 0 | 0% |
-| `trend-scout` | 2 | 4 | 25% | 0 | 1 | 100% |
+| `trend-scout` | 2 | 4 | 25% | 0 | 2 | 100% |
 
-Method: 3 rated round(s), 10 awaiting an outcome; average rating 3.3 of 5; ideas used 29%.
+Method: 4 rated round(s), 9 awaiting an outcome; average rating 3.0 of 5; ideas used 24%.
 <!-- scoreboard:end -->
 
 ## Privacy
