@@ -19,6 +19,8 @@ the protocol, and the lessons learned.
 - `scorecards/rounds.csv`: one row per persona per round, counts only
 - `scorecards/outcomes.csv`: one row per round, with the user's 1 to 5 rating of how useful it was
 - `lessons/LESSONS.md`: what changed the method and why
+- `reports/`: dated progress reports on what changed and whether the ratings moved, latest
+  [2026-10-31](reports/2026-10-31-progress.md)
 - `skill/`: the Claude Code skill that runs meetings, its templates, `score.py` and a chat mirror
 - `guard/`: the privacy guard that keeps personal details out of this repo
 

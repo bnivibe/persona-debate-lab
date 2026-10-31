@@ -90,7 +90,7 @@ DISCORD_HOSTS = {"discord.com", "discordapp.com", "ptb.discord.com", "canary.dis
 # Matched segment by segment, so a pattern never reaches into a deeper folder.
 EXPECTED_PATHS = (
     "README.md", "METHOD.md", "LICENSE", ".gitignore",
-    "personas/roster.md", "lessons/LESSONS.md",
+    "personas/roster.md", "lessons/LESSONS.md", "reports/*.md",
     "scorecards/rounds.csv", "scorecards/outcomes.csv",
     "skill/SKILL.md", "skill/bin/*.py", "skill/templates/*.md", "skill/tests/test_*.py",
     "guard/check_public.py", "guard/install-hooks.sh", "guard/tests/test_*.py",
