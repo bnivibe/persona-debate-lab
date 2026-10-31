@@ -80,7 +80,10 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    bring no new idea, objection or question; or, after six turns, the user chooses not to continue
    (the moderator asks). Then every persona gives a closing statement in parallel, two lines: what it
    now supports, and what it still doubts.
-8. **Minutes.** The moderator writes only what was said in the room:
+8. **Minutes.** The report to the user opens with each standing idea in two or three plain
+   sentences, in the user's language and without the room's labels: what it does, an example from
+   something the user has already done, and what changes for the user. Then the moderator writes
+   only what was said in the room:
    - Decided: what the room agreed on with no objection left unanswered, naming anyone who still
      disagrees.
    - Standing ideas, split into those that held up under objection and those nobody challenged.
@@ -100,7 +103,10 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
     questions: which ideas were used, whether each helped, and how useful the meeting was overall
     on a scale of 1 to 5. Fill `adopted` and `outcome` in `scorecards/rounds.csv`, fill
     `ideas_used` and `rating` in `scorecards/outcomes.csv`, run `score.py --write`, and add a
-    lesson if the result generalizes.
+    lesson if the result generalizes. In a meeting that looks for ideas, the user adopts the ideas
+    worth building from the standing ones. Every standing idea not adopted goes into the user's
+    candidate pool, and the next meeting that looks for ideas takes the whole pool in as candidates,
+    on equal terms with the room's new ideas and with none of their history (step 2).
 11. **Feedback on the method.** Whenever the user remarks on how a meeting is run (the cast, the
     questions, the pace, the format, the report), record the remark in the same turn, apply it to
     the running meeting where it can be, and before the next meeting turn it into a change to this
