@@ -20,7 +20,8 @@ CONTEXT:
 
 You will hear every later turn, so remember what is said. If you need something only the user
 knows or decides, ask the user; do not invent it. Facts you use must come from the context or
-from the user's answers.
+from the user's answers, or, in a meeting that looks for ideas, from your own research with its
+source.
 
 Now give your opening statement: where you stand, in at most 60 words, and at most two ideas,
 each at most 250 characters. Reply with plain text only.
@@ -33,10 +34,15 @@ WHAT THE USER CALLS A GOOD IDEA:
 <the user's words, quoted>
 Turning something the user already does into an automation or a skill is not an idea here.
 
-Before you speak, prepare on your own: analyze the material in the context; benchmark what
-already exists in this space (products, projects, write-ups), with a source for each, looking it
-up where you can; draft at least five ideas; keep the two least obvious that survive your own
-benchmark. Facts from your benchmarking count only with their source.
+WHERE THE USER'S OWN MATERIAL LIVES, AND WHAT IS OFF LIMITS:
+<locations, and the off-limits list>
+
+Before you speak, prepare on your own. The moderator gives you no facts about the user or the
+world: find them yourself. Read and analyze the user's material at the locations above (never what
+is off limits); browse the web for what people need and do now, in and beyond software; benchmark
+what already exists (products, projects, write-ups). Keep a source for every fact: a file path for
+the user's material, a link and date for the web. Draft at least five ideas; keep the two least
+obvious that survive your own benchmark. Facts count only with their source.
 
 Then give your opening statement: where you stand, in at most 60 words, and your two ideas, each
 at most 250 characters, each followed by one benchmark line of at most 150 characters (the
