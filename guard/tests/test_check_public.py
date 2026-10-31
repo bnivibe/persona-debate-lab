@@ -137,7 +137,8 @@ class Fixes(unittest.TestCase):
 
     def test_expected_paths_pass(self):
         paths = ["README.md", "METHOD.md", "LICENSE", ".gitignore", "personas/roster.md",
-                 "scorecards/rounds.csv", "lessons/LESSONS.md", "skill/bin/score.py",
+                 "scorecards/rounds.csv", "lessons/LESSONS.md", "reports/2026-10-31-progress.md",
+                 "skill/bin/score.py",
                  "skill/templates/thread.md", "guard/check_public.py", ".github/workflows/guard.yml"]
         self.assertEqual(self.blob_rules([(p, b"clean") for p in paths]), [])
 
@@ -577,7 +578,8 @@ class Prepublish(unittest.TestCase):
     # D2: the layout is matched per path segment, not with a slash-crossing glob
     def test_deep_paths_under_known_folders_are_unexpected(self):
         for path in ["skill/threads/job-offer/thread.md", "skill/rounds/round-01.md",
-                     "guard/notes/private.txt", "scorecards/private/notes.csv"]:
+                     "guard/notes/private.txt", "scorecards/private/notes.csv",
+                     "reports/threads/round-01.md", "reports/notes.txt"]:
             self.assertEqual([r for (_p, _l, r) in cp.scan_blobs([(path, b"clean")], [])], ["unexpected-path"], path)
 
     # D3: a scissors-shaped line in a stored message hides nothing
