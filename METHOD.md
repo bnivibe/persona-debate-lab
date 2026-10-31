@@ -114,6 +114,13 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    A question whose answer may decide an idea asks about the idea itself as well as the fact (would
    the user use it, does it interest the user): a factual answer alone is not the user's verdict on
    an idea, and a persona's own "if not, I withdraw" is its guess, not the user's.
+   An answer applies to the idea it was given about, in the user's own terms. Nobody widens it
+   into a new criterion for other ideas, and nobody reads more into it than it says (from "games
+   are fun to me only when I build them", not "the user values only what the user builds"). A move that
+   withdraws or objects on a criterion the user never stated is flagged as a misread of the user,
+   and the idea stays standing. Money, when the user names it, means what the idea could earn once
+   built and released, not buyers or sponsors in hand. Who builds an idea has no bearing on whether
+   it is a good one. The moderator's relays carry the user's words and nothing it infers from them.
    The user may also speak at any pause, and that remark is relayed the same way. Between pauses
    the moderator shows the user each turn as a short transcript (one line per speaker, passes
    left out) and keeps going.

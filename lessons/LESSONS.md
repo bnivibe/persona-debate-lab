@@ -2,6 +2,17 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-10-31 · An answer about one idea is not a rule for the others
+In a meeting whose personas brought their own material, eight of ten new ideas came from outside
+software, and all eight fell on readings of the user's answers that the user never gave.
+"Profitable" was read as buyers or sponsors in hand, which sank three games; "games are fun to me
+only when I build them" became "the user values only what the user builds", which sank two more; a
+"one more thing on my plate" said of one idea was applied to five others. The moderator repeated
+one of those readings in a relay. What survived was the pool's software ideas, so the meeting
+ended as development talk after all. The user rejected the readings, and the ideas came back.
+Answers now apply only to the idea they were given about, and a move built on an unstated
+criterion is a misread.
+
 ## 2026-10-31 · Widen the room: the pool after the openings, and seats from outside software
 After personas began bringing their own material, two skews were left. The candidate pool held
 fifteen ideas, all of them software, and handing it over before the openings would steer the
