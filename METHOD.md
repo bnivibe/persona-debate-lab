@@ -71,7 +71,7 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    exactly one move of at most 80 words:
    - `object` to a named idea, naming the weak link;
    - `support` or `refine` a named idea, saying what it adds;
-   - `deepen` a named idea that is not the persona's own, in the deepening turn (below);
+   - `deepen` the ideas the moderator dealt the persona, in the deepening turn (below);
    - `answer` an objection or a question put to it, with something new (a fact, a narrower
      version); restating a position is a `pass`;
    - `propose` a new idea (at most three per persona per meeting, counting the opening);
@@ -83,10 +83,13 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    the refiner's proposals. A turn ends when every persona has answered.
    A persona's known bias, from the roster, may be used as an argument.
    In a meeting that looks for ideas, the first turn is a deepening turn, before anything is
-   weeded out: every persona answers with `deepen`, in at most 120 words, on one idea that is not
-   its own and that nobody has deepened yet if one is left: a concrete picture of the user using
-   it, how it differs from its benchmark, and the part that is not obvious and makes it worth
-   building. No objections or withdrawals in that turn. Ideas are judged from the second turn on.
+   weeded out. The moderator deals every idea on the table, the pooled ones included, to the
+   personas so that each idea is deepened exactly once and no persona gets its own: ideas in label
+   order go round the personas in seating order, a persona's own idea passing to the next. Each
+   persona answers with one `deepen` per idea dealt to it, at most 80 words each: a concrete picture
+   of the user using it, how it differs from its benchmark, and the part that is not obvious and
+   makes it worth building. No objections or withdrawals in that turn. Ideas are judged from the
+   second turn on.
 5. **Check facts in the room.** Before relaying a turn, the moderator checks its factual claims
    against the context and the user's answers. A misread is flagged to everyone in the next relay,
    in one line that cites the fact, and is counted against its persona. Facts a persona found in

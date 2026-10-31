@@ -48,10 +48,11 @@ text only.
 
 ```text
 TURN 1, the deepening turn. Nothing is weeded out yet.
-Pick one idea that is not yours, preferably one nobody has deepened, and reply with
-deepen <label>, at most 120 words: a concrete picture of the user using it, how it differs from
-its benchmark, and the part that is not obvious and makes it worth building. No objections or
-withdrawals in this turn.
+The moderator dealt you these ideas (every idea on the table is deepened once, none by its author):
+<labels, each with its one-line description>
+For each of them, reply with deepen <label>, at most 80 words: a concrete picture of the user using
+it, how it differs from its benchmark, and the part that is not obvious and makes it worth
+building. No objections or withdrawals in this turn.
 ```
 
 ## Turn relay (step 4)
