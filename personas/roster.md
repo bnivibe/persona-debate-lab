@@ -42,6 +42,7 @@ never delete rows.
 | `creative-director` | Creative Director | Runs idea workshops at a small studio; turns constraints and odd pairings into concepts nobody has asked for yet | What if we flipped this, or crossed it with something unrelated? | Falls for the surprising idea over the one that can be built |
 | `trend-scout` | Trend Scout | Writes a weekly brief on what developers are building and starring right now; argues only from dated trend facts it finds and sources itself | Is this rising right now, and is anyone already riding it? | Mistakes one week of buzz for a lasting shift |
 | `devrel` | Developer Advocate | Talks with developers every week at meetups and online; hears what they ask for and what they build on weekends; argues only from dated trend facts it finds and sources itself | What are developers asking for that nobody has built well yet? | Hears the loudest voices and takes them for everyone |
+| `culture-scout` | Culture Trend Scout | Writes a weekly brief on what people outside software are starting to do, buy, learn and complain about (daily life, consumer habits, education, local news, culture); argues only from dated facts it finds and sources itself | What are people outside tech starting to do that nothing serves well yet? | Mistakes a viral moment for a lasting habit |
 
 ## Seats for idea meetings
 
@@ -51,10 +52,10 @@ seat list when a seat needs a stand-in; every list keeps at least two.
 | seat | personas |
 |---|---|
 | concept | `creative-director`, `product-designer` |
-| trend | `trend-scout`, `devrel` |
+| trend | `culture-scout`, `trend-scout`, `devrel` |
 | builder | `startup-cto`, `solo-indie`, `llm-app-engineer` |
 | critic | `migration-veteran`, `consultant`, `security-officer` |
-| open | any persona whose job is not tied to an idea on the table |
+| open | a persona from outside software first: `wh-settler`, `paperwork-agent`, `digital-nomad`, `gear-reseller`, `repair-tech`, `baggage-handler`; otherwise any persona whose job is not tied to an idea on the table |
 
 The moderator and the synthesis are not personas.
 

@@ -2,6 +2,15 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-10-31 · Widen the room: the pool after the openings, and seats from outside software
+After personas began bringing their own material, two skews were left. The candidate pool held
+fifteen ideas, all of them software, and handing it over before the openings would steer the
+personas' own research. And nine of the ten personas on the idea-meeting seat lists were software
+jobs, with both trend personas watching only developers. The user agreed to fix both. The pool is
+now shown after the openings and competes on equal terms from the deepening turn on; a culture
+trend persona joins the trend seat; and the open seat goes first to a persona from outside
+software.
+
 ## 2026-10-31 · Personas bring their own material, and adopted authors sit out
 Three idea meetings in a row produced only software ideas. The user stopped the fourth and asked
 why. The moderator had filled the context: 19 of its 26 facts were about software, all five trend
