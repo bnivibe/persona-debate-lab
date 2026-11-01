@@ -65,9 +65,9 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 | `migration-veteran` | 6 | 12 | 58% | 0 | 0 | 0% |
 | `oss-maintainer` | 2 | 4 | 75% | 0 | 1 | 0% |
 | `hiring-manager` | 7 | 18 | 67% | 0 | 0 | 0% |
-| `wh-settler` | 3 | 6 | 50% | 0 | 0 | n/a |
+| `wh-settler` | 3 | 6 | 50% | 0 | 0 | 0% |
 | `paperwork-agent` | 1 | 2 | 50% | 0 | 0 | n/a |
-| `product-designer` | 8 | 19 | 47% | 1 | 2 | 33% |
+| `product-designer` | 8 | 19 | 47% | 1 | 2 | 20% |
 | `llm-app-engineer` | 3 | 6 | 67% | 0 | 0 | 0% |
 | `learning-scientist` | 5 | 10 | 50% | 1 | 1 | 100% |
 | `agent-engineer` | 4 | 8 | 75% | 1 | 0 | 0% |
@@ -76,9 +76,9 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 | `creative-director` | 4 | 8 | 50% | 0 | 1 | 50% |
 | `trend-scout` | 3 | 6 | 33% | 0 | 2 | 100% |
 | `devrel` | 1 | 2 | 50% | 0 | 0 | 0% |
-| `culture-scout` | 3 | 5 | 40% | 1 | 0 | n/a |
+| `culture-scout` | 3 | 5 | 40% | 1 | 0 | 0% |
 
-Method: 6 rated round(s), 12 awaiting an outcome; average rating 3.2 of 5; ideas used 25%.
+Method: 8 rated round(s), 10 awaiting an outcome; average rating 2.9 of 5; ideas used 19%.
 <!-- scoreboard:end -->
 
 ## Privacy
