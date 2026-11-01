@@ -121,6 +121,11 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    and the idea stays standing. Money, when the user names it, means what the idea could earn once
    built and released, not buyers or sponsors in hand. Who builds an idea has no bearing on whether
    it is a good one. The moderator's relays carry the user's words and nothing it infers from them.
+   Narrowing is the same error: an instruction about one field applies to that field, and never
+   becomes the meeting's topic or the only kind of idea the moderator asks for. When ideas are meant
+   for other people (players, buyers, users), the room argues them from market evidence it finds and
+   cites (charts, sales, demand data, with the date read), not from guesses at the user's own taste,
+   and the moderator does not ask the user to judge such an idea by personal interest.
    The user may also speak at any pause, and that remark is relayed the same way. Between pauses
    the moderator shows the user each turn as a short transcript (one line per speaker, passes
    left out) and keeps going.

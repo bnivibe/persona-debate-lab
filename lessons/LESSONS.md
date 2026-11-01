@@ -2,6 +2,15 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-10-31 · Research the market, and do not turn one instruction into the topic
+In a reopened round the moderator asked the user which of four twists on a game would be fun and
+whether another game interested the user. The user answered, then said to stop picking by the
+user's taste and research the market, and, when benchmarking games, to look at broad charts. The
+moderator turned "research the market" into "propose a game the charts support" and gave every
+persona a game chart; every new idea was a game, and the user asked why the topic had become games.
+Once the turn was resent for any field, ideas came from five fields with cited demand. Ideas meant
+for others are argued from market evidence, and an instruction about one field stays in that field.
+
 ## 2026-10-31 · An answer about one idea is not a rule for the others
 In a meeting whose personas brought their own material, eight of ten new ideas came from outside
 software, and all eight fell on readings of the user's answers that the user never gave.
