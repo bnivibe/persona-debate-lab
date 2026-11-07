@@ -2,6 +2,16 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-11-06 · "Nothing has this name" needs the lookup that would find it
+In a naming meeting, seven fact errors came from five personas, and five of them were the same
+claim: no app or product has this name. Each was made from a web search; the app stores, searched
+by the name, showed a live app every time, once an app doing the product's own job. In the same
+meeting all five personas refined one name the user liked when the user had asked for more names,
+and nobody in the room named products for a living or was the teacher or the learner the name was
+for. The user asked to fix the cast. A claim that something does not exist now counts only after
+the lookup that would have found it, and the roster gains a naming strategist, a private tutor and
+an adult learner.
+
 ## 2026-10-31 · Research the market, and do not turn one instruction into the topic
 In a reopened round the moderator asked the user which of four twists on a game would be fun and
 whether another game interested the user. The user answered, then said to stop picking by the
