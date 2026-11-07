@@ -84,3 +84,13 @@ date,thread,category,round,persona,proposals,survived,attacked,fact_errors,adopt
 2026-10-31,T013,tech,2,startup-cto,1,0,3,0,0,miss
 2026-10-31,T013,tech,2,migration-veteran,1,1,1,0,0,miss
 2026-10-31,T013,tech,2,wh-settler,2,2,1,0,0,miss
+2026-11-06,T014,learning,1,creative-director,5,2,7,1,0,miss
+2026-11-06,T014,learning,1,learning-scientist,5,0,5,1,0,miss
+2026-11-06,T014,learning,1,course-creator,4,0,9,2,0,miss
+2026-11-06,T014,learning,1,culture-scout,6,1,4,1,0,miss
+2026-11-06,T014,learning,1,solo-indie,6,1,1,2,0,miss
+2026-11-06,T014,learning,2,brand-namer,4,2,2,1,1,hit
+2026-11-06,T014,learning,2,esl-tutor,5,4,2,0,1,hit
+2026-11-06,T014,learning,2,language-learner,4,1,2,0,0,miss
+2026-11-06,T014,learning,2,culture-scout,4,0,4,0,0,miss
+2026-11-06,T014,learning,2,solo-indie,5,1,4,0,0,miss

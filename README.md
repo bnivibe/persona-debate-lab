@@ -53,7 +53,7 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 |---|---|---|---|---|---|---|
 | `startup-cto` | 5 | 11 | 55% | 2 | 0 | 0% |
 | `sre-oncall` | 1 | 2 | 100% | 0 | 0 | n/a |
-| `solo-indie` | 8 | 20 | 55% | 3 | 3 | 33% |
+| `solo-indie` | 10 | 31 | 42% | 5 | 3 | 20% |
 | `data-engineer` | 5 | 11 | 82% | 1 | 0 | n/a |
 | `backend-junior` | 2 | 4 | 100% | 1 | 0 | n/a |
 | `tech-lead-mid` | 1 | 2 | 100% | 0 | 0 | n/a |
@@ -69,16 +69,19 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 | `paperwork-agent` | 1 | 2 | 50% | 0 | 0 | n/a |
 | `product-designer` | 8 | 19 | 47% | 1 | 2 | 20% |
 | `llm-app-engineer` | 3 | 6 | 67% | 0 | 0 | 0% |
-| `learning-scientist` | 5 | 10 | 50% | 1 | 1 | 100% |
+| `learning-scientist` | 6 | 15 | 33% | 2 | 1 | 50% |
 | `agent-engineer` | 4 | 8 | 75% | 1 | 0 | 0% |
 | `indie-game-designer` | 2 | 5 | 60% | 0 | 2 | 50% |
-| `course-creator` | 1 | 2 | 50% | 0 | 0 | n/a |
-| `creative-director` | 4 | 8 | 50% | 0 | 1 | 50% |
+| `course-creator` | 2 | 6 | 17% | 2 | 0 | 0% |
+| `creative-director` | 5 | 13 | 46% | 1 | 1 | 33% |
 | `trend-scout` | 3 | 6 | 33% | 0 | 2 | 100% |
 | `devrel` | 1 | 2 | 50% | 0 | 0 | 0% |
-| `culture-scout` | 3 | 5 | 40% | 1 | 0 | 0% |
+| `culture-scout` | 5 | 15 | 20% | 2 | 0 | 0% |
+| `brand-namer` | 1 | 4 | 50% | 1 | 1 | 100% |
+| `esl-tutor` | 1 | 5 | 80% | 0 | 1 | 100% |
+| `language-learner` | 1 | 4 | 25% | 0 | 0 | 0% |
 
-Method: 8 rated round(s), 10 awaiting an outcome; average rating 2.9 of 5; ideas used 19%.
+Method: 8 rated round(s), 12 awaiting an outcome; average rating 2.9 of 5; ideas used 19%.
 <!-- scoreboard:end -->
 
 ## Privacy
