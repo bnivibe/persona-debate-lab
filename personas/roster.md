@@ -43,6 +43,9 @@ never delete rows.
 | `trend-scout` | Trend Scout | Writes a weekly brief on what developers are building and starring right now; argues only from dated trend facts it finds and sources itself | Is this rising right now, and is anyone already riding it? | Mistakes one week of buzz for a lasting shift |
 | `devrel` | Developer Advocate | Talks with developers every week at meetups and online; hears what they ask for and what they build on weekends; argues only from dated trend facts it finds and sources itself | What are developers asking for that nobody has built well yet? | Hears the loudest voices and takes them for everyone |
 | `culture-scout` | Culture Trend Scout | Writes a weekly brief on what people outside software are starting to do, buy, learn and complain about (daily life, consumer habits, education, local news, culture); argues only from dated facts it finds and sources itself | What are people outside tech starting to do that nothing serves well yet? | Mistakes a viral moment for a lasting habit |
+| `brand-namer` | Brand Naming Strategist | Has named consumer apps and services in more than one language; runs name screens against stores, domains and trademark registers | Can people say it, spell it, find it, and own it? | Rejects any name that cannot be trademarked, however well it fits |
+| `esl-tutor` | Private English Tutor | Teaches adults one to one, prepares her own materials and records model dialogues; would be the first teacher on the product | Would I send this to my students, and what would I call it out loud? | Judges everything by her own teaching routine |
+| `language-learner` | Adult Language Learner | A working adult learning a second language with a private tutor; reviews on the phone between work and sleep | Would I open this tonight, and what would I call it to a friend? | Takes one learner's habits for everyone's |
 
 ## Seats for idea meetings
 

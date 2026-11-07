@@ -21,7 +21,10 @@ CONTEXT:
 You will hear every later turn, so remember what is said. If you need something only the user
 knows or decides, ask the user; do not invent it. Facts you use must come from the context or
 from the user's answers, or, in a meeting that looks for ideas, from your own research with its
-source.
+source. A claim that something does not exist (no app, product, domain or trademark by a name)
+counts only after the lookup that would have found it: the app stores searched by that name, the
+domain records, and a trademark register where it matters, each with its source and date. A web
+search alone is not that lookup.
 
 Now give your opening statement: where you stand, in at most 60 words, and at most two ideas,
 each at most 250 characters. Reply with plain text only.
@@ -76,6 +79,7 @@ Reply with exactly one move, at most 80 words, starting with its name:
 object <label> | support <label> | refine <label> | deepen <label> | answer <persona> | propose |
 ask <persona> | ask-user | withdraw <label> | pass
 Restating your position is a pass. Do not defend your own idea without something new.
+A claim that something does not exist needs the lookup that would have found it, with its source.
 ```
 
 ## Closing (step 7)
