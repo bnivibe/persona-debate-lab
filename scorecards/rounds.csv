@@ -94,3 +94,8 @@ date,thread,category,round,persona,proposals,survived,attacked,fact_errors,adopt
 2026-11-06,T014,learning,2,language-learner,4,1,2,0,0,miss
 2026-11-06,T014,learning,2,culture-scout,4,0,4,0,0,miss
 2026-11-06,T014,learning,2,solo-indie,5,1,4,0,0,miss
+2026-11-07,T015,tooling,1,llm-app-engineer,3,3,2,0,0,pending
+2026-11-07,T015,tooling,1,agent-engineer,2,2,0,0,0,pending
+2026-11-07,T015,tooling,1,solo-indie,2,1,1,1,0,pending
+2026-11-07,T015,tooling,1,product-manager,2,1,0,0,0,pending
+2026-11-07,T015,tooling,1,cost-controller,2,2,0,0,0,pending
