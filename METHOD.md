@@ -126,6 +126,11 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    for other people (players, buyers, users), the room argues them from market evidence it finds and
    cites (charts, sales, demand data, with the date read), not from guesses at the user's own taste,
    and the moderator does not ask the user to judge such an idea by personal interest.
+   In a meeting where the user picks one candidate by its own judgment (a name, a look), the
+   moderator asks the user for a direction right after the openings, before any judging turn: it
+   groups the ideas on the table into a few directions, each in plain words with one or two
+   examples, and asks which to pursue and which to drop. Turns then follow that answer. Before the
+   room narrows onto one candidate, it asks again.
    The user may also speak at any pause, and that remark is relayed the same way. Between pauses
    the moderator shows the user each turn as a short transcript (one line per speaker, passes
    left out) and keeps going.

@@ -2,6 +2,16 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-11-06 · When the user picks one, ask for a direction after the openings
+The user scored a naming meeting 3 of 5: without the user's own steering no good name would have
+come out, and most names were not to the user's liking. Every name the user liked came after the
+user gave a direction (English only, both sides of the platform, Korean allowed, something easy to
+carry like a tote). The first round ran eight turns before the user's first word on direction, and
+the room spent them weighing names the user would have set aside at once. In a meeting where the
+user picks one candidate, the moderator now groups the openings into a few directions in plain
+words and asks the user which to pursue before any judging turn, and asks again before the room
+narrows onto one candidate.
+
 ## 2026-11-06 · "Nothing has this name" needs the lookup that would find it
 In a naming meeting, seven fact errors came from five personas, and five of them were the same
 claim: no app or product has this name. Each was made from a web search; the app stores, searched
