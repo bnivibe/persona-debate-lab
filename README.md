@@ -53,15 +53,15 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 |---|---|---|---|---|---|---|
 | `startup-cto` | 5 | 11 | 55% | 2 | 0 | 0% |
 | `sre-oncall` | 1 | 2 | 100% | 0 | 0 | n/a |
-| `solo-indie` | 11 | 33 | 42% | 6 | 3 | 20% |
+| `solo-indie` | 11 | 33 | 42% | 6 | 4 | 33% |
 | `data-engineer` | 5 | 11 | 82% | 1 | 0 | n/a |
 | `backend-junior` | 2 | 4 | 100% | 1 | 0 | n/a |
 | `tech-lead-mid` | 1 | 2 | 100% | 0 | 0 | n/a |
-| `cost-controller` | 2 | 4 | 50% | 0 | 0 | n/a |
-| `consultant` | 4 | 8 | 75% | 2 | 0 | 0% |
+| `cost-controller` | 2 | 4 | 50% | 0 | 1 | 100% |
+| `consultant` | 4 | 8 | 75% | 2 | 1 | 33% |
 | `platform-vendor` | 2 | 4 | 25% | 1 | 0 | n/a |
-| `product-manager` | 3 | 9 | 56% | 1 | 0 | n/a |
-| `security-officer` | 3 | 6 | 100% | 1 | 0 | n/a |
+| `product-manager` | 3 | 9 | 56% | 1 | 1 | 100% |
+| `security-officer` | 3 | 6 | 100% | 1 | 1 | 100% |
 | `migration-veteran` | 6 | 12 | 58% | 0 | 0 | 0% |
 | `oss-maintainer` | 2 | 4 | 75% | 0 | 1 | 0% |
 | `hiring-manager` | 7 | 18 | 67% | 0 | 0 | 0% |
@@ -70,18 +70,18 @@ has happened, the outcome goes back into each persona's scorecard, so the next c
 | `product-designer` | 8 | 19 | 47% | 1 | 2 | 20% |
 | `llm-app-engineer` | 4 | 9 | 78% | 0 | 0 | 0% |
 | `learning-scientist` | 6 | 15 | 33% | 2 | 1 | 50% |
-| `agent-engineer` | 6 | 12 | 75% | 1 | 0 | 0% |
+| `agent-engineer` | 6 | 12 | 75% | 1 | 1 | 50% |
 | `indie-game-designer` | 2 | 5 | 60% | 0 | 2 | 50% |
 | `course-creator` | 2 | 6 | 17% | 2 | 0 | 0% |
 | `creative-director` | 5 | 13 | 46% | 1 | 1 | 33% |
-| `trend-scout` | 4 | 8 | 38% | 1 | 2 | 100% |
-| `devrel` | 2 | 4 | 50% | 1 | 0 | 0% |
+| `trend-scout` | 4 | 8 | 38% | 1 | 3 | 100% |
+| `devrel` | 2 | 4 | 50% | 1 | 2 | 50% |
 | `culture-scout` | 5 | 15 | 20% | 2 | 0 | 0% |
 | `brand-namer` | 1 | 4 | 50% | 1 | 1 | 100% |
 | `esl-tutor` | 1 | 5 | 80% | 0 | 1 | 100% |
 | `language-learner` | 1 | 4 | 25% | 0 | 0 | 0% |
 
-Method: 10 rated round(s), 12 awaiting an outcome; average rating 2.9 of 5; ideas used 13%.
+Method: 12 rated round(s), 10 awaiting an outcome; average rating 3.1 of 5; ideas used 17%.
 <!-- scoreboard:end -->
 
 ## Privacy
