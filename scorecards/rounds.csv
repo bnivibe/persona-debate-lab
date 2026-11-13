@@ -104,3 +104,8 @@ date,thread,category,round,persona,proposals,survived,attacked,fact_errors,adopt
 2026-11-07,T015,tooling,2,security-officer,2,2,1,1,1,hit
 2026-11-07,T015,tooling,2,consultant,2,2,2,1,1,hit
 2026-11-07,T015,tooling,2,agent-engineer,2,1,1,0,1,hit
+2026-11-14,T016,tech,1,creative-director,2,1,1,0,0,pending
+2026-11-14,T016,tech,1,culture-scout,2,2,0,0,0,pending
+2026-11-14,T016,tech,1,solo-indie,2,1,3,1,0,pending
+2026-11-14,T016,tech,1,consultant,2,2,0,0,0,pending
+2026-11-14,T016,tech,1,gear-reseller,2,2,0,1,0,pending
