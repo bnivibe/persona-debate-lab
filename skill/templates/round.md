@@ -2,6 +2,7 @@
 
 cast: <ids>
 topic, in the user's words: <quote>
+far fields dealt (idea meetings only): <id>=<field>; <field>, ...
 
 <!-- agent ids while the meeting runs: <id>=<agent id>, ... -->
 
@@ -10,6 +11,7 @@ topic, in the user's words: <quote>
 - Decided:
 - Held up under objection:
 - Never challenged:
+- Seeds (idea meetings only): where each new idea came from, and how many started outside the user's life:
 - Withdrawn or dropped (by whom, why):
 - The user's answers:
 - Open questions for the user:

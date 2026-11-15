@@ -2,6 +2,15 @@
 
 Each lesson is about the method, never about a situation. Newest first.
 
+## 2026-11-16 · Ideas grow from whatever the personas read first
+The user adopted nothing from an idea meeting and said the ideas leaned too much on the user's own
+experience. The opening brief told every persona to read and analyze the user's material first, so
+most new ideas were the user's recent life turned into a product. Where the research starts is
+where the ideas come from. An idea meeting now starts outside the user's life: each persona is
+dealt two far fields at random, drafts by a named move, drops drafts seeded by the user's life, and
+reads the user's material last and only to drop repeats. Every idea carries a seed line, and the
+report counts how many new ideas started outside.
+
 ## 2026-11-06 · When the user picks one, ask for a direction after the openings
 The user scored a naming meeting 3 of 5: without the user's own steering no good name would have
 come out, and most names were not to the user's liking. Every name the user liked came after the
