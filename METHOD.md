@@ -34,7 +34,14 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    the goal, the decision date, the audience and venue, the constraints, the user's bar for a good
    idea, what not to put back, and where the user's own material lives with what is off limits,
    and nothing else; the user's earlier answers and adopted ideas go in only as what not to put
-   back, never as a starting point. Each persona finds its own facts (step 3). The candidate pool
+   back, never as a starting point. The user's own material is not a starting point either: it is
+   read last and only to drop what repeats the user's past work, never to draw an idea from
+   (step 3). With the opening brief the
+   moderator deals each persona two far fields, drawn at random from
+   `skill/templates/far-fields.md` with no field dealt twice in a meeting and none repeated from
+   the last idea meeting; the moderator never picks them, redraws a field that repeats, and writes the dealt
+   fields into the round file. Each persona finds its own facts
+   (step 3). The candidate pool
    stays out of the opening brief, so the personas' own research is not steered by it: it is shown
    to everyone with the first relay after the openings and then enters the deepening deal and the
    judging on equal terms. The
@@ -66,13 +73,20 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    content, ask the same agent once to re-output its answer; if that also fails, stop and tell the
    user. Then start the rest in parallel. Each opening statement says where the persona stands, in
    at most 60 words, and puts at most two ideas on the table, each at most 250 characters. In a
-   meeting that looks for ideas, each persona prepares before it speaks: it reads and analyzes the
-   user's own material where the context points (never what is off limits), browses the web for
-   what people need and do now, in and beyond software, benchmarks what already exists in the space (products, projects, write-ups,
-   each with a source, looked up where it can), drafts at least five ideas on its own, and brings
-   the two least obvious that survive its own benchmark, each with one benchmark line of at most
-   150 characters: the closest thing that exists, and how this idea differs. The drafts stay
-   private; only the opening is shown. The moderator labels every
+   meeting that looks for ideas, each persona prepares before it speaks, starting outside the
+   user's life: it studies the two far fields it was dealt (how the work is done there, what is
+   scarce, what people pay for, what changed in the last two years), browses the web for what
+   people need and do now, in and beyond software, and drafts at least eight ideas on its own, each made by a named move: carrying a working mechanism from one
+   field into another, reversing an assumption a field takes for granted, joining two things that
+   are not sold together, or serving the people a field turns away. It drops every draft whose
+   seed is something the user lived, owns, bought, built or wrote down, and every draft it could
+   have written without the research. Only then does it read the user's material where the
+   context points (never what is off limits), to drop what repeats the user's past work. Last it
+   benchmarks what is left against what already exists (products, projects, write-ups, each with a
+   source, looked up where it can) and brings the two least obvious that survive, at least one of them from a dealt field,
+   each with one benchmark line of at most 150 characters (the closest thing that exists, and how
+   this idea differs) and one seed line of at most 150 characters (the field and source the idea
+   came from, and the move that made it). The drafts stay private; only the opening is shown. The moderator labels every
    idea when it is first stated (`DE-1`, `DE-2`, ... by persona) and keeps each agent's id so the
    same agent hears every later turn.
 4. **Turns.** In a turn the moderator sends every persona, in parallel, everything said since its
@@ -83,7 +97,9 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    - `deepen` the ideas the moderator dealt the persona, in the deepening turn (below);
    - `answer` an objection or a question put to it, with something new (a fact, a narrower
      version); restating a position is a `pass`;
-   - `propose` a new idea (at most three per persona per meeting, counting the opening);
+   - `propose` a new idea (at most three per persona per meeting, counting the opening; in a
+     meeting that looks for ideas it carries its benchmark line and seed line, which do not count
+     toward the 80 words);
    - `ask` a named persona;
    - `ask-user` a question only the user can answer: a preference, a private fact, a decision;
    - `withdraw` one of its own ideas, saying why;
@@ -95,16 +111,18 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    weeded out. The moderator deals every idea on the table, the pooled ones included, to the
    personas so that each idea is deepened exactly once and no persona gets its own: ideas in label
    order go round the personas in seating order, a persona's own idea passing to the next. Each
-   persona answers with one `deepen` per idea dealt to it, at most 80 words each: a concrete picture
-   of the user using it, how it differs from its benchmark, and the part that is not obvious and
+   persona answers with one `deepen` per idea dealt to it, at most 80 words each: a concrete picture of someone using it, how it differs from its benchmark, and the part that is not obvious and
    makes it worth building. No objections or withdrawals in that turn. Ideas are judged from the
    second turn on.
 5. **Check facts in the room.** Before relaying a turn, the moderator checks its factual claims
    against the context and the user's answers. A misread is flagged to everyone in the next relay,
    in one line that cites the fact, and is counted against its persona. Facts a persona found in
    its own benchmarking count only with their source. In a meeting that looks for ideas the
-   moderator also flags an idea that only automates what the user already does; its author makes
-   it new or withdraws it.
+   moderator also flags an idea that only automates what the user already does, and an idea the
+   room proposed whose seed line points at the user's own life or records, or names no outside
+   source; its author makes it new or withdraws it. Pooled ideas carry no seed line and are not
+   flagged for it. An idea may still be useful to the user: the flag is about where it
+   came from.
 6. **Ask the user.** The meeting pauses when a turn contains an `ask-user` move. If the context
    already answers it, the moderator says so to the room and does not ask. Otherwise it puts the
    remaining questions to the user, at most three at once, in the user's language and in plain
@@ -141,8 +159,10 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
 8. **Minutes.** Every meeting ends with a report the user can keep, made without being asked: a
    document saved where the user's records live, with a page for reading it, and the chat carries
    a short summary and the link. The report opens with each standing idea in two or three plain
-   sentences, in the user's language and without the room's labels: what it does, an example from
-   something the user has already done, and what changes for the user. Then the moderator writes
+   sentences, in the user's language and without the room's labels: what it does, an example of
+   someone using it, and what changes for that person. The report of a meeting that looks for
+   ideas also says, for each new idea, where its seed came from, and how many new ideas started
+   outside the user's life. Then the moderator writes
    only what was said in the room:
    - Decided: what the room agreed on with no objection left unanswered, naming anyone who still
      disagrees.

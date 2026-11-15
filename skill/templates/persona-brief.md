@@ -40,18 +40,31 @@ Turning something the user already does into an automation or a skill is not an 
 WHERE THE USER'S OWN MATERIAL LIVES, AND WHAT IS OFF LIMITS:
 <locations, and the off-limits list>
 
-Before you speak, prepare on your own. The moderator gives you no facts about the user or the
-world: find them yourself. Read and analyze the user's material at the locations above (never what
-is off limits); browse the web for what people need and do now, in and beyond software; benchmark
-what already exists (products, projects, write-ups). Keep a source for every fact: a file path for
-the user's material, a link and date for the web. Draft at least five ideas; keep the two least
-obvious that survive your own benchmark. Facts count only with their source. The candidate pool is
-not shown yet; you will see it after the openings, and it competes with your ideas on equal terms.
+YOUR TWO FAR FIELDS, drawn at random, not chosen:
+<field>; <field>
+
+Before you speak, prepare on your own, in this order. The moderator gives you no facts about the
+user or the world: find them yourself.
+1. Start outside the user's life. Study your two far fields on the web: how the work is done
+   there, what is scarce, what people pay for, what changed in the last two years. Browse beyond
+   them for what people need and do now, in and beyond software. Keep a link and date for every fact.
+2. Draft at least eight ideas. Make each by a named move: carry a mechanism that works in one
+   field into another; reverse an assumption a field takes for granted; join two things that are
+   not sold together; serve the people a field turns away.
+3. Drop every draft whose seed is something the user lived, owns, bought, built or wrote down, and
+   every draft you could have written without step 1. The user's life is not a source of ideas here.
+4. Only now read the user's material at the locations above (never what is off limits), and only
+   to drop what repeats the user's past work. Do not take ideas from it.
+5. Benchmark what is left (products, projects, write-ups) and keep the two least obvious that
+   survive, at least one of them from a far field you were dealt.
+Facts count only with their source. The candidate pool is not shown yet; you will see it after the
+openings, and it competes with your ideas on equal terms.
 
 Then give your opening statement: where you stand, in at most 60 words, and your two ideas, each
 at most 250 characters, each followed by one benchmark line of at most 150 characters (the
-closest thing that exists, and how this idea differs). Do not show your drafts. Reply with plain
-text only.
+closest thing that exists, and how this idea differs) and one seed line of at most 150 characters
+(the field and source it came from, and the move that made it). Do not show your drafts. Reply
+with plain text only.
 ```
 
 ## Deepening turn (step 4, first turn of a meeting that looks for ideas)
@@ -62,7 +75,7 @@ THE CANDIDATE POOL, shown now and on the table on equal terms:
 <POOL-n labels, each with its one-line description>
 The moderator dealt you these ideas (every idea on the table is deepened once, none by its author):
 <labels, each with its one-line description>
-For each of them, reply with deepen <label>, at most 80 words: a concrete picture of the user using
+For each of them, reply with deepen <label>, at most 80 words: a concrete picture of someone using
 it, how it differs from its benchmark, and the part that is not obvious and makes it worth
 building. No objections or withdrawals in this turn.
 ```
@@ -79,6 +92,8 @@ Reply with exactly one move, at most 80 words, starting with its name:
 object <label> | support <label> | refine <label> | deepen <label> | answer <persona> | propose |
 ask <persona> | ask-user | withdraw <label> | pass
 Restating your position is a pass. Do not defend your own idea without something new.
+In a meeting that looks for ideas, a proposed idea carries its benchmark line and its seed line;
+those two lines do not count toward the 80 words.
 A claim that something does not exist needs the lookup that would have found it, with its source.
 ```
 
