@@ -1,10 +1,10 @@
 # Far fields
 
-Fields an idea meeting deals to its personas (`METHOD.md`, step 2), two each, so the research
+Fields an idea meeting deals to the personas in its four far seats (`METHOD.md`, step 2), two each, so the research
 starts outside the user's life. The moderator draws them at random and never picks:
 
 ```sh
-python3 -c "import random,sys;f=[l[2:].strip() for l in open('skill/templates/far-fields.md') if l.startswith('- ')];random.shuffle(f);print('\n'.join(f[:int(sys.argv[1])*2]))" 5
+python3 -c "import random,sys;f=[l[2:].strip() for l in open('skill/templates/far-fields.md') if l.startswith('- ')];random.shuffle(f);print('\n'.join(f[:int(sys.argv[1])*2]))" 4
 ```
 
 No field is dealt twice in a meeting, and none dealt in the last idea meeting is dealt again: check

@@ -46,19 +46,33 @@ never delete rows.
 | `brand-namer` | Brand Naming Strategist | Has named consumer apps and services in more than one language; runs name screens against stores, domains and trademark registers | Can people say it, spell it, find it, and own it? | Rejects any name that cannot be trademarked, however well it fits |
 | `esl-tutor` | Private English Tutor | Teaches adults one to one, prepares her own materials and records model dialogues; would be the first teacher on the product | Would I send this to my students, and what would I call it out loud? | Judges everything by her own teaching routine |
 | `language-learner` | Adult Language Learner | A working adult learning a second language with a private tutor; reviews on the phone between work and sleep | Would I open this tonight, and what would I call it to a friend? | Takes one learner's habits for everyone's |
+| `user-chronicler` | User's Chronicler | Has read the user's diaries, project archives and notes end to end; knows what the user has lived, built and struggled with | Where has the user already lived this problem? | Takes one person's life for a market |
+| `funeral-director` | Funeral Director | Arranges a family's hardest week, on short notice and with no second try | What does a person need when they cannot think straight? | Sees every service as a ritual |
+| `commercial-fisher` | Commercial Fisher | Weeks at sea, then sells the catch at a dawn auction | What happens when the supply and the price both change overnight? | Distrusts anything that needs a steady signal or a fixed schedule |
+| `er-nurse` | Emergency Nurse | Sorts a waiting room by who cannot wait | Who gets seen first, and who waits unseen? | Treats everything as urgent |
+| `stage-manager` | Stage Manager | Runs live shows from the wings; calls every cue | What happens when it goes wrong in front of everyone? | Plans for failure until nothing surprising is left |
+| `beekeeper` | Beekeeper | Keeps hives through the seasons and rents them out for pollination | What does this look like across a whole year? | Puts patience above speed |
+| `auctioneer` | Estate Auctioneer | Sells the contents of whole houses to strangers in an afternoon | What would a stranger pay for this today? | Takes the hammer price for the worth |
+| `sports-referee` | Amateur Sports Referee | Makes calls that half the field dislikes, every weekend | Who decides when two people disagree, and do they accept it? | Wants a rule for everything |
+| `street-vendor` | Night Market Vendor | Sells food from a stall to people walking past | Would a passer-by stop within three seconds? | Sees only the impulse sale |
+| `home-care-worker` | Home Care Worker | Visits older people at home and helps them through the day | Can someone with shaky hands and poor eyesight do this alone? | Designs everything for the frailest user |
+| `long-haul-trucker` | Long-Haul Trucker | Drives alone for days; lives by rest stops and delivery windows | What do you do with ten empty hours and nobody around? | Assumes everyone is alone and on the move |
+| `museum-conservator` | Museum Conservator | Repairs and stores objects so they outlast the people who made them | What will this look like in fifty years? | Puts keeping a thing above using it |
+| `kindergarten-teacher` | Kindergarten Teacher | Runs a room of five-year-olds by turning everything into a game | Can a five-year-old follow it, and will they do it twice? | Turns everything into play |
 
 ## Seats for idea meetings
 
-An idea meeting fills these five seats and rotates them (`METHOD.md` step 2). Add a persona to a
-seat list when a seat needs a stand-in; every list keeps at least two.
+An idea meeting fills one user seat and four far seats (`METHOD.md` step 2). The user seat brings
+ideas from the user's own experience; the far seats bring ideas from working lives far from the
+user's. Add a persona to the far list when a meeting shows a gap; the list keeps at least eight.
 
-| seat | personas |
-|---|---|
-| concept | `creative-director`, `product-designer` |
-| trend | `culture-scout`, `trend-scout`, `devrel` |
-| builder | `startup-cto`, `solo-indie`, `llm-app-engineer` |
-| critic | `migration-veteran`, `consultant`, `security-officer` |
-| open | a persona from outside software first: `wh-settler`, `paperwork-agent`, `digital-nomad`, `gear-reseller`, `repair-tech`, `baggage-handler`; otherwise any persona whose job is not tied to an idea on the table |
+| seat | how many | personas |
+|---|---|---|
+| user | 1, does not rotate | `user-chronicler` |
+| far | 4, rotating | `funeral-director`, `commercial-fisher`, `er-nurse`, `stage-manager`, `beekeeper`, `auctioneer`, `sports-referee`, `street-vendor`, `home-care-worker`, `long-haul-trucker`, `museum-conservator`, `kindergarten-teacher`, `repair-tech` |
+
+The seats used until 2026-11-16 (concept, trend, builder, critic, open) are no longer filled in idea
+meetings; their personas stay on the roster for other meetings.
 
 The moderator and the synthesis are not personas.
 

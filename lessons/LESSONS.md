@@ -9,7 +9,10 @@ most new ideas were the user's recent life turned into a product. Where the rese
 where the ideas come from. An idea meeting now starts outside the user's life: each persona is
 dealt two far fields at random, drafts by a named move, drops drafts seeded by the user's life, and
 reads the user's material last and only to drop repeats. Every idea carries a seed line, and the
-report counts how many new ideas started outside.
+report counts how many new ideas started outside. The user then asked for balance: one seat
+holds a persona that knows the user's experience and brings ideas from it, and the other four are
+filled with personas from working lives far from the user's, who judge those ideas and bring
+their own.
 
 ## 2026-11-06 · When the user picks one, ask for a direction after the openings
 The user scored a naming meeting 3 of 5: without the user's own steering no good name would have

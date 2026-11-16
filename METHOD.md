@@ -34,10 +34,11 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    the goal, the decision date, the audience and venue, the constraints, the user's bar for a good
    idea, what not to put back, and where the user's own material lives with what is off limits,
    and nothing else; the user's earlier answers and adopted ideas go in only as what not to put
-   back, never as a starting point. The user's own material is not a starting point either: it is
+   back, never as a starting point. For the four far seats the user's own material is not a starting point either (the user seat
+   starts from it): it is
    read last and only to drop what repeats the user's past work, never to draw an idea from
    (step 3). With the opening brief the
-   moderator deals each persona two far fields, drawn at random from
+   moderator deals each persona in a far seat two far fields, drawn at random from
    `skill/templates/far-fields.md` with no field dealt twice in a meeting and none repeated from
    the last idea meeting; the moderator never picks them, redraws a field that repeats, and writes the dealt
    fields into the round file. Each persona finds its own facts
@@ -52,20 +53,25 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    candidate, and none of its earlier rounds, so the cast meets it for the first time. When the
    user's words for the topic or its scope can be read two ways, say in one line how they were
    read before preparing the context. Then run `python3 skill/bin/score.py
-   --brief` and pick three to five personas whose jobs touch the topic. A meeting that looks for
-   new ideas, or weighs ideas against each other, seats one persona whose job is making new
+   --brief` and pick three to five personas whose jobs touch the topic. A meeting that only
+   weighs ideas already on the table, and looks for no new ones, seats one persona whose job is making new
    concepts, one who tracks current trends, and one who builds what the ideas would need and asks
    whether it can be made; the trend persona finds its own dated trend facts, each with its source.
    When the topic is finding new candidates, the context never carries a list of candidates the
    moderator or a helper drew up beforehand: the candidates come from the room. When ideas
    are weighed on equal terms, no persona whose job ties it to one of them is cast; pooled ideas carry
-   no author, so a persona that proposed one may sit again. An idea meeting fills five seats by role
-   (concept, trend, builder, critic, open), each from its seat list in `personas/roster.md`, and
-   rotates them: a persona sits at most two idea meetings in a row and then rests one; at least two
+   no author, so a persona that proposed one may sit again. An idea meeting fills five seats from
+   the seat lists in `personas/roster.md`: one user seat and four far seats. The user seat holds the
+   one persona that knows the user's experience: it reads the user's material first and brings
+   ideas grown from what the user has lived, so the room always has that side and the other four
+   judge it. The far seats hold personas whose working lives are far from the user's and from each
+   other's, so the other ideas start somewhere the user has not been. Exactly one user seat, never
+   more. The far seats rotate: a persona sits at most two idea meetings in a row and then rests one; at least two
    seats change from the last idea meeting; a persona whose idea was adopted sits out the next idea
    meeting (a meeting stopped before its close does not count), so the room does not circle the
-   last adoption; one with no adopted idea, or with a misread, is changed first. Every seat
-   list keeps at least two personas, so a resting persona always has a stand-in. Show the user the cast with one line of
+   last adoption; one with no adopted idea, or with a misread, is changed first. The far seat
+   list keeps at least eight personas, so a resting persona always has a stand-in; the user seat
+   does not rotate and does not sit out after an adoption. Show the user the cast with one line of
    reasoning each and wait for a yes. Every round includes at least one persona who was not in the
    previous round.
 3. **Seat the room.** Start one persona alone with the opening brief from
@@ -73,8 +79,8 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    content, ask the same agent once to re-output its answer; if that also fails, stop and tell the
    user. Then start the rest in parallel. Each opening statement says where the persona stands, in
    at most 60 words, and puts at most two ideas on the table, each at most 250 characters. In a
-   meeting that looks for ideas, each persona prepares before it speaks, starting outside the
-   user's life: it studies the two far fields it was dealt (how the work is done there, what is
+   meeting that looks for ideas, each persona in a far seat prepares before it speaks, starting
+   outside the user's life and from its own trade: it studies the two far fields it was dealt (how the work is done there, what is
    scarce, what people pay for, what changed in the last two years), browses the web for what
    people need and do now, in and beyond software, and drafts at least eight ideas on its own, each made by a named move: carrying a working mechanism from one
    field into another, reversing an assumption a field takes for granted, joining two things that
@@ -86,7 +92,12 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    source, looked up where it can) and brings the two least obvious that survive, at least one of them from a dealt field,
    each with one benchmark line of at most 150 characters (the closest thing that exists, and how
    this idea differs) and one seed line of at most 150 characters (the field and source the idea
-   came from, and the move that made it). The drafts stay private; only the opening is shown. The moderator labels every
+   came from, and the move that made it). The persona in the user seat prepares the other way round: it reads the user's material
+   first (never what is off limits), drafts at least eight ideas grown from what the user has
+   lived, built or struggled with, drops what only automates what the user already does and what
+   repeats the user's past work, benchmarks the rest, and brings the two least obvious, each with
+   its benchmark line and a seed line naming the part of the user's experience it came from. The
+   drafts stay private; only the opening is shown. The moderator labels every
    idea when it is first stated (`DE-1`, `DE-2`, ... by persona) and keeps each agent's id so the
    same agent hears every later turn.
 4. **Turns.** In a turn the moderator sends every persona, in parallel, everything said since its
@@ -120,7 +131,7 @@ was not in the room. `lessons/LESSONS.md` says why it changed; compare ratings a
    its own benchmarking count only with their source. In a meeting that looks for ideas the
    moderator also flags an idea that only automates what the user already does, and an idea the
    room proposed whose seed line points at the user's own life or records, or names no outside
-   source; its author makes it new or withdraws it. Pooled ideas carry no seed line and are not
+   source; its author makes it new or withdraws it. Ideas from the user seat are meant to come from the user's life and are not flagged for it. Pooled ideas carry no seed line and are not
    flagged for it. An idea may still be useful to the user: the flag is about where it
    came from.
 6. **Ask the user.** The meeting pauses when a turn contains an `ask-user` move. If the context
