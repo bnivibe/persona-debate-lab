@@ -46,6 +46,13 @@ as they happen, and writes minutes that hold only what was said in the room. Whe
 has happened, the outcome goes back into each persona's scorecard, so the next cast picks better.
 `METHOD.md` has every step.
 
+A meeting that looks for new ideas fills five seats. One user seat holds the persona that knows the
+user's experience: it reads the user's material first and brings ideas from it. Four far seats hold
+personas whose working lives are far from the user's: each is dealt two far fields at random,
+starts there, reads the user's material last, and rotates out after two meetings in a row. Every
+idea carries a seed line saying where it came from. The seats changed to this on 2026-11-15, so
+that most ideas start somewhere the user has not been.
+
 ## Track record
 
 <!-- scoreboard:start -->
